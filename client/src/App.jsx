@@ -1,11 +1,17 @@
 import React from 'react';
 
+import Header from './Header.jsx';
+import Footer from './Footer.jsx';
+
 
 
 const App = () => {
   return (
-    <div>Welcome to Pixel Vault
+    <div>
+      <Header />
+      <Footer />
     </div>
+
   )
 }
 
