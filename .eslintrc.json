@@ -1,0 +1,27 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["airbnb"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "no-unused-vars": "warn",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
+    "node/no-unsupported-features/es-syntax": "off",
+    "no-shadow": "off",
+    "no-param-reassign": "off",
+    "import/extensions": "off"
+  }
+}
