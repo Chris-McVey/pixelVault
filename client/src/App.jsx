@@ -9,8 +9,9 @@ import PageTwo from './PageTwo.jsx';
 const App = () => (
   <div id="outerContainer">
     <Header />
+    <div />
     <Switch>
-      <Route exact path="/">
+      <Route exact path="/" component={PageOne}>
         <PageOne />
       </Route>
       <Route path="/pagetwo">
