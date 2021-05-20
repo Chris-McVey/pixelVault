@@ -1,10 +1,20 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { AppBar, Toolbar, Button, ButtonGroup } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
+import {
+  Typography,
+  AppBar,
+  Toolbar,
+  Button,
+  ButtonGroup,
+} from '@material-ui/core';
 
 const Header = () => {
   const history = useHistory();
-  const displayDesktop = () => <Toolbar>pixelVault</Toolbar>;
+  const displayDesktop = () => (
+    <Toolbar>
+      <div className="pixel-vault-menu-text">pixelVault</div>
+    </Toolbar>
+  );
 
   return (
     <div>
