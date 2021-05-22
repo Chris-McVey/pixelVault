@@ -5,6 +5,7 @@ import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import PageOne from './PageOne.jsx';
 import PageTwo from './PageTwo.jsx';
+import Instagram from './Instagram.jsx';
 
 const App = () => (
   <div id="outerContainer">
@@ -18,6 +19,7 @@ const App = () => (
         <PageTwo />
       </Route>
     </Switch>
+    <Instagram />
     <Footer />
   </div>
 );
