@@ -26,8 +26,8 @@ const Header = () => {
           id="headerButtons"
         >
           <Button onClick={() => history.push('/')}>Home</Button>
-          <Button onClick={() => history.push('/pagetwo')}>Page Two</Button>
-          <Button onClick={() => history.push('/pagetwo')}>About</Button>
+          <Button onClick={() => history.push('/events')}>Events</Button>
+          <Button onClick={() => history.push('/news')}>News</Button>
         </ButtonGroup>
       </AppBar>
     </div>

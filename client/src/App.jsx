@@ -3,8 +3,9 @@ import { Switch, Route } from 'react-router-dom';
 
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
-import PageOne from './PageOne.jsx';
-import PageTwo from './PageTwo.jsx';
+import Events from './Events.jsx';
+import News from './News.jsx';
+import Home from './Home.jsx';
 import Instagram from './Instagram.jsx';
 
 const App = () => (
@@ -12,11 +13,14 @@ const App = () => (
     <Header />
     <div />
     <Switch>
-      <Route exact path="/" component={PageOne}>
-        <PageOne />
+      <Route exact path="/" component={Home}>
+        <Home />
       </Route>
-      <Route path="/pagetwo">
-        <PageTwo />
+      <Route path="/events">
+        <Events />
+      </Route>
+      <Route path="/news">
+        <News />
       </Route>
     </Switch>
     <Instagram />
