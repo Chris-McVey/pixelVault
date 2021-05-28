@@ -1,9 +1,12 @@
 import React from 'react';
+import { Container } from '@material-ui/core';
 
 const News = () => {
   return (
     <div id="newsPageContainer">
-      <div>News</div>
+      <Container>
+        <div>News Page</div>
+      </Container>
     </div>
   );
 };

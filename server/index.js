@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+require('../database/connect.js');
 
 const app = express();
 
