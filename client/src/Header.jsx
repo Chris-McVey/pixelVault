@@ -8,26 +8,26 @@ import {
   ButtonGroup,
 } from '@material-ui/core';
 
+import logo from '../../assets/mainLogo.png';
+
 const Header = () => {
   const history = useHistory();
-  const displayDesktop = () => (
-    <Toolbar>
-      <div className="pixel-vault-menu-text">pixelVault</div>
-    </Toolbar>
-  );
 
   return (
-    <div>
+    <div id="header">
       <AppBar position="sticky">
-        {displayDesktop()}
+        <div id="pixelVaultLogo">
+          <img src={logo} alt="Pixel Vault logo" />
+        </div>
         <ButtonGroup
           variant="contained"
           color="secondary"
           aria-label="outlined primary button group"
+          id="headerButtons"
         >
           <Button onClick={() => history.push('/')}>Home</Button>
-          <Button onClick={() => history.push('/pagetwo')}>Page Two</Button>
-          <Button onClick={() => history.push('/pagetwo')}>About</Button>
+          <Button onClick={() => history.push('/events')}>Events</Button>
+          <Button onClick={() => history.push('/news')}>News</Button>
         </ButtonGroup>
       </AppBar>
     </div>
