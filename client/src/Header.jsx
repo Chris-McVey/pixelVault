@@ -25,9 +25,18 @@ const Header = () => {
           aria-label="outlined primary button group"
           id="headerButtons"
         >
-          <Button onClick={() => history.push('/')}>Home</Button>
+          <Button
+            onClick={() => {
+              history.push('/');
+              // This is a hacky way to reload our content
+              document.location.reload();
+            }}
+          >
+            Home
+          </Button>
           <Button onClick={() => history.push('/events')}>Events</Button>
           <Button onClick={() => history.push('/news')}>News</Button>
+          <Button onClick={() => history.push('/contact')}>Contact</Button>
         </ButtonGroup>
       </AppBar>
     </div>
