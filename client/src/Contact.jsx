@@ -6,8 +6,12 @@ const Contact = () => {
   };
   return (
     <div className="contact-container">
+      <div className="image-next-to-map">
+        <img src="../assets/storeExterior.jpeg" alt="Store exterior" />
+      </div>
       <div className="phone-sm">
         <a href="tel:(909)664-7634">Call: (909)664-7634</a>
+        Hours???
       </div>
       <div className="map-holder">
         <iframe
