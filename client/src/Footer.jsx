@@ -1,17 +1,16 @@
 import React from 'react';
 import { AppBar } from '@material-ui/core';
+import YouTubeIcon from '@material-ui/icons/YouTube';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import FacebookIcon from '@material-ui/icons/Facebook';
 
-const Footer = () => {
-  return (
-    <div>
-      <AppBar position="sticky">my AppBar</AppBar>
-    </div>
-  );
-  // return (
-  //   <div id="footerContainer">
-  //     <div>Footer Here</div>
-  //   </div>
-  // );
-};
-
+const Footer = () => (
+  <div>
+    <AppBar position="fixed" color="primary" style={{ top: 'auto', bottom: 0 }}>
+      <YouTubeIcon />
+      <InstagramIcon />
+      <FacebookIcon />
+    </AppBar>
+  </div>
+);
 export default Footer;
