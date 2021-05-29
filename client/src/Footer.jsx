@@ -6,7 +6,8 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 
 const Footer = () => (
   <div>
-    <AppBar position="fixed" color="primary" style={{ top: 'auto', bottom: 0 }}>
+    {/* <AppBar position="fixed" color="primary" style={{ top: 'auto', bottom: 0 }}> */}
+    <AppBar position="sticky">
       <YouTubeIcon />
       <InstagramIcon />
       <FacebookIcon />
