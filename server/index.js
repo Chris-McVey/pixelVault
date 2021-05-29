@@ -14,8 +14,26 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 
 app.post('/api/news', (req, res) => {
-
+  const newsContent = req.body;
+  addNews(newsContent, (err, result) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(201).send(result);
+    }
+  });
 });
+
+app.get('/api/news', (req, res) => {
+  getNews((err, result) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(result);
+    }
+  });
+});
+
 app.use('/assets', express.static('assets'));
 
 app.get('*', (req, res) => {
