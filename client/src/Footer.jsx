@@ -3,9 +3,11 @@ import { AppBar } from '@material-ui/core';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
+
 const footerClickHandler = (e) => {
-  console.log(e);
+  console.log(e.target);
 };
+
 const Footer = () => {
   const appBottomStyle = {
     display: 'flex',
