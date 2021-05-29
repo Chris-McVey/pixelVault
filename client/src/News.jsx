@@ -1,11 +1,14 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
 
+import NewsFeed from './NewsFeed.jsx';
+
 const News = () => {
   return (
-    <div id="newsPageContainer">
+    <div id="news-container">
       <Container>
-        <div>News Page</div>
+        <h1 id="news-heading">News and Updates</h1>
+        <NewsFeed />
       </Container>
     </div>
   );

@@ -15,8 +15,8 @@ const App = () => (
     <div />
     <Switch>
       <Route exact path="/" component={Home}>
+        <Home />
         <Instagram />
-        {/* <Home /> */}
       </Route>
       <Route path="/events">
         <Events />
@@ -28,7 +28,6 @@ const App = () => (
         <Contact />
       </Route>
     </Switch>
-    {/* <Instagram /> */}
     <Footer />
   </div>
 );

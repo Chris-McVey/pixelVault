@@ -6,6 +6,7 @@ const Contact = () => {
   };
   return (
     <div className="contact-container">
+      <h1 id="contact-heading">Contact Us</h1>
       <div className="image-next-to-map">
         <img src="../assets/storeExterior.jpeg" alt="Store exterior" />
       </div>

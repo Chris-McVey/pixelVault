@@ -11,3 +11,21 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+#news-heading {
+  text-align: center;
+}
+
+#events-heading {
+  text-align: center;
+}
+
+#contact-heading {
+  text-align: center;
+}
+
+#google-calendar {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
