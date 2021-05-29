@@ -22,6 +22,7 @@
     "node/no-unsupported-features/es-syntax": "off",
     "no-shadow": "off",
     "no-param-reassign": "off",
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "comma-dangle": "off"
   }
 }

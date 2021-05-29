@@ -1,12 +1,22 @@
+require('../database/connect.js');
 const express = require('express');
 const path = require('path');
-require('../database/connect.js');
+const bodyParser = require('body-parser');
+
+const {
+  addNews, getNews, addEvent, getEvents
+} = require('../database/queries.js');
 
 const app = express();
 
 const port = process.env.PORT || 3000;
 
 app.use(express.static('public'));
+app.use(bodyParser.json());
+
+app.post('/api/news', (req, res) => {
+
+});
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
