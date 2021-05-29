@@ -7,6 +7,7 @@ import Events from './Events.jsx';
 import News from './News.jsx';
 import Home from './Home.jsx';
 import Instagram from './Instagram.jsx';
+import Contact from './Contact.jsx';
 
 const App = () => (
   <div id="outerContainer">
@@ -14,7 +15,8 @@ const App = () => (
     <div />
     <Switch>
       <Route exact path="/" component={Home}>
-        <Home />
+        <Instagram />
+        {/* <Home /> */}
       </Route>
       <Route path="/events">
         <Events />
@@ -22,8 +24,11 @@ const App = () => (
       <Route path="/news">
         <News />
       </Route>
+      <Route path="/contact">
+        <Contact />
+      </Route>
     </Switch>
-    <Instagram />
+    {/* <Instagram /> */}
     <Footer />
   </div>
 );
