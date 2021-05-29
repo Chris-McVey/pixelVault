@@ -19,15 +19,33 @@ const Footer = () => {
     <div>
       {/* <AppBar position="fixed" color="primary" style={{ top: 'auto', bottom: 0 }}> */}
       <AppBar style={appBottomStyle} position="sticky">
-        <div className="youtube-icon">
-          <YouTubeIcon onClick={footerClickHandler} fontSize="large" />
-        </div>
-        <div className="insta-icon">
-          <InstagramIcon onClick={footerClickHandler} fontSize="large" />
-        </div>
-        <div className="face-icon">
-          <FacebookIcon onClick={footerClickHandler} fontSize="large" />
-        </div>
+        <a
+          href="https://www.youtube.com/channel/UCKONxFboO1zJNbvhPsbp5mQ"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div className="youtube-icon">
+            <YouTubeIcon onClick={footerClickHandler} fontSize="large" />
+          </div>
+        </a>
+        <a
+          href="https://www.instagram.com/pixelvaultgames/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div className="insta-icon">
+            <InstagramIcon onClick={footerClickHandler} fontSize="large" />
+          </div>
+        </a>
+        <a
+          href="https://www.facebook.com/PixelVaultGames/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div className="face-icon">
+            <FacebookIcon onClick={footerClickHandler} fontSize="large" />
+          </div>
+        </a>
       </AppBar>
     </div>
   );
