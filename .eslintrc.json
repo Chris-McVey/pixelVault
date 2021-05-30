@@ -23,6 +23,7 @@
     "no-shadow": "off",
     "no-param-reassign": "off",
     "import/extensions": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "arrow-body-style": "off"
   }
 }
