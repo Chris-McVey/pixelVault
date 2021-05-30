@@ -1,12 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import {
-  Typography,
-  AppBar,
-  Toolbar,
-  Button,
-  ButtonGroup,
-} from '@material-ui/core';
+import { AppBar, Button, ButtonGroup } from '@material-ui/core';
 
 import logo from '../../assets/mainLogo.png';
 
