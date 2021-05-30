@@ -17,7 +17,9 @@ const Header = () => {
     <div id="header">
       <AppBar position="sticky">
         <div id="pixelVaultLogo">
-          <img src={logo} alt="Pixel Vault logo" />
+          <a href="/">
+            <img src={logo} alt="Pixel Vault logo" />
+          </a>
         </div>
         <ButtonGroup
           variant="contained"

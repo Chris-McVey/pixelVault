@@ -12,7 +12,6 @@ import Contact from './Contact.jsx';
 const App = () => (
   <div id="outerContainer">
     <Header />
-    <div />
     <Switch>
       <Route exact path="/" component={Home}>
         <Home />
