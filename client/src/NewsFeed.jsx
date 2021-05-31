@@ -30,6 +30,11 @@ const NewsFeed = () => {
       {newsList.map(({ _id, title, date, text }) => {
         return <NewsEntry key={_id} title={title} date={date} text={text} />;
       })}
+      <img
+        id="game-over"
+        src="../assets/gameOver.jpg"
+        alt="Old school arcade screen showing the words 'Game Over'"
+      />
     </div>
   );
 };
