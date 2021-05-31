@@ -12,7 +12,7 @@ const eventsSchema = mongoose.Schema({
   title: String,
   date: Date,
   text: String,
-  startTime: String,
+  startTime: String, // Should probably use ISOTime
   endTime: String,
 });
 
