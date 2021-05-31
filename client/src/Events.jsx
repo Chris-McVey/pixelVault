@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from '@material-ui/core';
 
 const Events = () => (
-  <div id="eventsPageContainer">
+  <div id="events-page-container">
     <h1 id="events-heading">Upcoming Pixel Vault Events</h1>
     <Container>
       <div id="calendar-container">

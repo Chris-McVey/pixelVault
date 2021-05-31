@@ -127,8 +127,14 @@
 
 /* EVENTS PAGE */
 
+#events-page-container {
+  background-image: url('../assets/spaceInvaders.jpg');
+  background-size: contain;
+}
+
 #events-heading {
   text-align: center;
+  color: white;
 }
 
 #google-calendar {
