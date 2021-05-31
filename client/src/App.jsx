@@ -13,7 +13,7 @@ const App = () => (
   <div id="outerContainer">
     <Header />
     <Switch>
-      <Route exact path="/" component={Home}>
+      <Route exact path="/">
         <Home />
         <Instagram />
       </Route>
