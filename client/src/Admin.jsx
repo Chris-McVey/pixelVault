@@ -7,6 +7,7 @@ import {
   TextField,
   Button,
 } from '@material-ui/core';
+import axios from 'axios';
 
 const Admin = () => {
   const defaults = { newsTitle: '', newsBody: '' };
@@ -25,12 +26,7 @@ const Admin = () => {
       });
     }
   };
-  const handleNewsSubmit = () => {
-    if (formValues.newsBody === '' || formValues.newsTitle === '') {
-      return;
-    }
-    // post news to DB
-  };
+
   const handleNewsClear = () => {
     // document.getElementById('title').value = '';
     // document.getElementById('post-body').value = '';
@@ -38,12 +34,28 @@ const Admin = () => {
       ...defaults,
     });
   };
-  console.log(formValues);
+
+  const handleNewsSubmit = () => {
+    if (formValues.newsBody === '' || formValues.newsTitle === '') {
+      return;
+    }
+    // post news to DB
+    axios
+      .post('/api/news', {
+        title: formValues.newsTitle,
+        text: formValues.newsBody,
+      })
+      .then(() => {
+        handleNewsClear();
+      })
+      .catch((e) => console.log(e));
+  };
+
   return (
     <div className="admin-panel">
       {'Admin:\n'}
       {'News Post\n'}
-      {/*Need to make these containers bigger*/}
+
       <div className="news-title">
         <InputLabel htmlFor="title">Title</InputLabel>
         <Input
