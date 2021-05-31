@@ -101,6 +101,22 @@
   text-align: center;
 }
 
+.news-entry {
+  border: 2px solid;
+  margin-bottom: 10px;
+}
+
+.news-entry-title {
+  text-align: center;
+}
+
+.news-entry-date {
+  text-align: center;
+}
+
+.news-entry-text {
+}
+
 /* EVENTS PAGE */
 
 #events-heading {

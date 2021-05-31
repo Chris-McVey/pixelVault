@@ -13,8 +13,15 @@ const NewsFeed = () => {
         const posts = response.data;
         setNewsList(posts);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        setNewsList([
+          {
+            title:
+              'Posts intercepted on their way to Earth. Sending reinforcements.',
+            date: '1983-03-30T08:00:00.000Z',
+            text: 'Await further instructions',
+          },
+        ]);
       });
   }, []);
 
