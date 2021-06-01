@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-const { addNews, getNews } = require('../database/queries.js');
+const { addNews, getNews, authUser } = require('../database/queries.js');
 
 const app = express();
 
@@ -13,7 +13,13 @@ app.use(bodyParser.json()); // Could use express.json.
 
 // Auth code
 app.post('/api/auth', (req, res) => {
-  debugger;
+  authUser(req.body.username, req.body.password, (err, result) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(result);
+    }
+  });
 });
 
 app.post('/api/news', (req, res) => {

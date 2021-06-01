@@ -34,10 +34,19 @@ const AuthForm = () => {
       return;
     }
 
-    axios.post('/api/auth', {
-      username: authState.user,
-      password: authState.password,
-    });
+    axios
+      .post('/api/auth', {
+        username: authState.user,
+        password: authState.password,
+      })
+      .then((data) => {
+        const token = data.data;
+        sessionStorage.setItem('session_id', token);
+        location.reload();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
   return (
     <div className="login-div">

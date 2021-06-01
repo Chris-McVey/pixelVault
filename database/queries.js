@@ -92,7 +92,7 @@ const authUser = (username, textPassword, cb) => {
           .catch((e) => cb(e, null));
       } else {
         // If the password is invalid, we need to let the api know.
-        cb(new Error('Invalid Token'), null);
+        cb(new Error('Invalid Creds'), null);
       }
     }
   });
