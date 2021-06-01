@@ -7,7 +7,7 @@ const Events = () => (
     <Container>
       <div id="calendar-container">
         <iframe
-          src="https://calendar.google.com/calendar/embed?src=g79lojfecgksepd4rs9s3focuc%40group.calendar.google.com&ctz=America%2FLos_Angeles"
+          src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FLos_Angeles&amp;src=ODdubDZ2Z3VuMG5tY2VnbGJuNG52ZTZoMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23F6BF26&amp;showDate=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTitle=0&amp;showTz=1"
           style={{
             border: 0,
             width: 800,
