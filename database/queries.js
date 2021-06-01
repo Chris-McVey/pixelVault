@@ -80,9 +80,13 @@ const authUser = (username, textPassword, cb) => {
       if (checkString === password) {
         // Assign a session ID to the user and send back the session ID.
         const sessionToken = crypto.randomBytes(Math.ceil(32)).toString('hex');
+
+        const expiration = new Date(Date.now());
+        expiration.setHours(expiration.getHours() + 24);
+
         // update the user to a new session_id.
-        User.findOneAndUpdate({ id: result.id }, { sessionToken })
-          .then((data) => {
+        User.findOneAndUpdate({ id: result.id, expiration }, { sessionToken })
+          .then(() => {
             cb(null, sessionToken);
           })
           .catch((e) => cb(e, null));

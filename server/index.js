@@ -3,15 +3,18 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-const {
-  addNews, getNews
-} = require('../database/queries.js');
+const { addNews, getNews } = require('../database/queries.js');
 
 const app = express();
 
 const port = process.env.PORT || 3000;
 app.use(express.static('public'));
-app.use(bodyParser.json());
+app.use(bodyParser.json()); // Could use express.json.
+
+// Auth code
+app.post('/api/auth', (req, res) => {
+  debugger;
+});
 
 app.post('/api/news', (req, res) => {
   const newsContent = req.body;

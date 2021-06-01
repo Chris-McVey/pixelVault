@@ -33,8 +33,9 @@ const AuthForm = () => {
     if (authState.password === '' || authState.user === '') {
       return;
     }
+
     axios.post('/api/auth', {
-      username: authState.username,
+      username: authState.user,
       password: authState.password,
     });
   };
