@@ -25,9 +25,12 @@ const NewsFeed = () => {
       });
   }, []);
 
+  const chronologicalNews = newsList;
+  chronologicalNews.reverse();
+
   return (
     <div id="news-feed">
-      {newsList.map(({ _id, title, date, text }) => {
+      {chronologicalNews.map(({ _id, title, date, text }) => {
         return <NewsEntry key={_id} title={title} date={date} text={text} />;
       })}
       <img
