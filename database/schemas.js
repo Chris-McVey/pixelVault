@@ -18,4 +18,13 @@ const eventsSchema = mongoose.Schema({
 
 const Events = mongoose.model('Events', eventsSchema);
 
-module.exports = { News, Events };
+const userSchema = mongoose.Schema({
+  username: String,
+  password: String,
+  sessionToken: String,
+  salt: String,
+});
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = { News, Events, User };
