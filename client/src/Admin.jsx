@@ -9,14 +9,15 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 import NewsForm from './NewsForm';
+import AuthForm from './AuthForm';
 
 const Admin = () => {
   // Check if auth'd
   if (!sessionStorage.getItem('session_id')) {
-    return 'not auth';
-  } else {
-    return <NewsForm />;
+    return <AuthForm />;
   }
+
+  return <NewsForm />;
 };
 
 export default Admin;
