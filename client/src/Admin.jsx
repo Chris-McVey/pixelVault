@@ -16,8 +16,11 @@ const Admin = () => {
   if (!sessionStorage.getItem('session_id')) {
     return <AuthForm />;
   }
-
-  return <NewsForm />;
+  const session = sessionStorage.getItem('session_id');
+  axios.post('/api/isauthd', { sessionToken: session }).then((data) => {
+    debugger;
+  });
+  //return <NewsForm />;
 };
 
 export default Admin;
