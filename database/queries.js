@@ -54,7 +54,8 @@ const addUser = (username, password) => {
       console.log(e);
     });
 };
-
+// This function auths a user, and creates a new session token if they auth.
+// If we can't find the user we call back with null result.
 const authUser = (username, textPassword, cb) => {
   User.find({ username }, (err, result) => {
     if (err) {
@@ -63,15 +64,31 @@ const authUser = (username, textPassword, cb) => {
       if (result.length === 0) {
         cb(null, false); // let the api know that there isn't a user.
       }
-      const { username, salt, password } = result[0];
+      // Peform password hashing on incoming plaintext.
+      const { salt, password } = result[0];
       let hash = crypto.createHmac(
         'sha512',
         salt
       ); /** Hashing algorithm sha512 */
       hash.update(textPassword);
       const checkString = hash.digest('hex');
+      // If our plaintext matches our hashed password, then we create a session token.
+      // This token needs to be sent back to the user, and stored on their end.
+      // It will be the key for our API for the session.
+      // There is an issue here where we need to clear the token from the DB on session close.
+      // Or expire the token somehow.
       if (checkString === password) {
-        cb(null, true);
+        // Assign a session ID to the user and send back the session ID.
+        const sessionToken = crypto.randomBytes(Math.ceil(32)).toString('hex');
+        // update the user to a new session_id.
+        User.findOneAndUpdate({ id: result.id }, { sessionToken })
+          .then((data) => {
+            cb(null, sessionToken);
+          })
+          .catch((e) => cb(e, null));
+      } else {
+        // If the password is invalid, we need to let the api know.
+        cb(new Error('Invalid Token'), null);
       }
     }
   });
