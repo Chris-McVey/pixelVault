@@ -4,7 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const {
-  addNews, getNews, addEvent, getEvents
+  addNews, getNews
 } = require('../database/queries.js');
 
 const app = express();

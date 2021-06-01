@@ -1,5 +1,5 @@
 const crypto = require('crypto');
-const { News, Events, User } = require('./schemas.js');
+const { News, User } = require('./schemas.js');
 
 const addNews = ({ title, date, text }, callback) => {
   const newNews = new News({
@@ -94,15 +94,10 @@ const authUser = (username, textPassword, cb) => {
   });
 };
 
-const addEvent = () => {};
-
-const getEvents = () => {};
 //addUser('test', 'someuser');
 //authUser('test', 'someuser');
 module.exports = {
   addNews,
   getNews,
-  addEvent,
-  getEvents,
   authUser,
 };

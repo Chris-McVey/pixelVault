@@ -8,16 +8,6 @@ const newsSchema = mongoose.Schema({
 
 const News = mongoose.model('News', newsSchema);
 
-const eventsSchema = mongoose.Schema({
-  title: String,
-  date: Date,
-  text: String,
-  startTime: String, // Should probably use ISOTime
-  endTime: String,
-});
-
-const Events = mongoose.model('Events', eventsSchema);
-
 const userSchema = mongoose.Schema({
   username: String,
   password: String,
@@ -27,4 +17,4 @@ const userSchema = mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-module.exports = { News, Events, User };
+module.exports = { News, User };
