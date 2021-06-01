@@ -8,6 +8,7 @@ import News from './News.jsx';
 import Home from './Home.jsx';
 import Instagram from './Instagram.jsx';
 import Contact from './Contact.jsx';
+import Admin from './Admin.jsx';
 
 const App = () => (
   <div id="outerContainer">
@@ -25,6 +26,9 @@ const App = () => (
       </Route>
       <Route path="/contact">
         <Contact />
+      </Route>
+      <Route path="/admin">
+        <Admin />
       </Route>
     </Switch>
     <Footer />
