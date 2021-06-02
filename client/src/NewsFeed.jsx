@@ -30,6 +30,15 @@ const NewsFeed = () => {
       });
   }, []);
 
+  const handleAddMorePosts = () => {
+    const currentPosts = newsList;
+    const currentDisplayed = displayed;
+    const newTobeDisplayed = currentPosts.splice(0, 5);
+    const finalDisplay = currentDisplayed.concat(newTobeDisplayed);
+    setNewsList(currentPosts);
+    setDisplayed(finalDisplay);
+  };
+
   return (
     <div id="news-feed">
       {displayed.map(({ _id, title, date, text }) => {
@@ -40,7 +49,8 @@ const NewsFeed = () => {
           variant="contained"
           color="secondary"
           aria-label="outlined primary button group"
-          id="news.feed.button"
+          className="news.feed.button"
+          onClick={handleAddMorePosts}
         >
           More
         </Button>
