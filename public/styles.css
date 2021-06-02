@@ -100,6 +100,10 @@
 
 /* NEWS PAGE */
 
+#news-feed {
+  display: grid;
+}
+
 #news-heading {
   text-align: center;
 }
@@ -121,6 +125,13 @@
   display: block;
   max-width: 50%;
   height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+#news-feed-button {
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }
