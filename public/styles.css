@@ -208,6 +208,12 @@ a:visited {
   font-family: 'manaspaceregular';
 } */
 
-p {
+/* p {
+  font-family: 'manaspaceregular';
+} */
+
+h1,
+h2,
+h3 {
   font-family: 'manaspaceregular';
 }
