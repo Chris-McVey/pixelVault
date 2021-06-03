@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NewsFeed from './NewsFeed.jsx';
 import {
   FormControl,
   InputLabel,
@@ -13,11 +14,16 @@ import AuthForm from './AuthForm';
 
 const Admin = () => {
   // Check if auth'd
-  if (!sessionStorage.getItem('session_id')) {
-    return <AuthForm />;
-  }
+  // if (!sessionStorage.getItem('session_id')) {
+  //   return <AuthForm />;
+  // }
 
-  return <NewsForm />;
+  return (
+    <div>
+      <NewsForm />
+      <NewsFeed />
+    </div>
+  );
 };
 
 export default Admin;

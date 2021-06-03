@@ -27,6 +27,10 @@ const getNews = (callback) => {
   });
 };
 
+const deleteNews = (id, callback) => {
+
+};
+
 const addUser = (username, password) => {
   // Create the password hash with salt.
   const salt = crypto
