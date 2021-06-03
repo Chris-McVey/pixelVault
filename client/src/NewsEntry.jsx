@@ -14,7 +14,10 @@ const NewsEntry = ({ _id, title, date, text, handleDelete }) => {
       <p className="news-entry-date">{`${day}-${month}-${year}`}</p>
       <p className="news-entry-Text">{text}</p>
       {handleDelete ? (
-        <DeleteForeverIcon onClick={() => handleDelete(_id)} />
+        <DeleteForeverIcon
+          onClick={() => handleDelete(_id)}
+          className="trash"
+        />
       ) : null}
     </Container>
   );
@@ -22,6 +25,7 @@ const NewsEntry = ({ _id, title, date, text, handleDelete }) => {
 
 NewsEntry.propTypes = {
   title: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   handleDelete: PropTypes.func,

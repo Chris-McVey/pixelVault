@@ -217,3 +217,7 @@ h2,
 h3 {
   font-family: 'manaspaceregular';
 }
+
+.trash:hover {
+  cursor: crosshair;
+}
