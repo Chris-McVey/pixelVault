@@ -25,9 +25,9 @@ const Admin = () => {
   };
 
   // Check if auth'd
-  // if (!sessionStorage.getItem('session_id')) {
-  //   return <AuthForm />;
-  // }
+  if (!sessionStorage.getItem('session_id')) {
+    return <AuthForm />;
+  }
 
   return (
     <div>
