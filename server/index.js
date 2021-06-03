@@ -34,8 +34,9 @@ app.get('/api/news', (req, res) => {
   });
 });
 
-app.delete('/api/news', (req, res) => {
-  deleteNews((err, result) => {
+app.delete('/api/news:id', (req, res) => {
+  const { id } = req.params;
+  deleteNews(id, (err, result) => {
     if (err) {
       res.status(500).send(err);
     } else {

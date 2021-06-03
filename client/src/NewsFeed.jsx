@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import NewsEntry from './NewsEntry.jsx';
 
-const NewsFeed = () => {
+const NewsFeed = ({ handleDelete }) => {
   const [newsList, setNewsList] = useState([]);
   const [displayed, setDisplayed] = useState([]);
 
@@ -42,7 +42,16 @@ const NewsFeed = () => {
   return (
     <div id="news-feed">
       {displayed.map(({ _id, title, date, text }) => {
-        return <NewsEntry key={_id} title={title} date={date} text={text} />;
+        return (
+          <NewsEntry
+            key={_id}
+            _id={_id}
+            title={title}
+            date={date}
+            text={text}
+            handleDelete={handleDelete}
+          />
+        );
       })}
       {newsList.length ? (
         <Button
