@@ -28,7 +28,13 @@ const getNews = (callback) => {
 };
 
 const deleteNews = (id, callback) => {
-
+  News.deleteOne({ _id: id }, (err, result) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, result);
+    }
+  });
 };
 
 const addUser = (username, password) => {
@@ -104,4 +110,5 @@ module.exports = {
   addNews,
   getNews,
   authUser,
+  deleteNews,
 };

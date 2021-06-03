@@ -4,7 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const {
-  addNews, getNews
+  addNews, getNews, deleteNews
 } = require('../database/queries.js');
 
 const app = express();
@@ -26,6 +26,16 @@ app.post('/api/news', (req, res) => {
 
 app.get('/api/news', (req, res) => {
   getNews((err, result) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(result);
+    }
+  });
+});
+
+app.delete('/api/news', (req, res) => {
+  deleteNews((err, result) => {
     if (err) {
       res.status(500).send(err);
     } else {
