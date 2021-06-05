@@ -11,13 +11,8 @@ const Home = () => {
         alt="Store display case with NES games"
       />
       <p id="home-first-block-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum
-        porttitor risus, id fringilla ante viverra nec. Aliquam tortor lorem,
-        mollis quis ex ut, elementum mollis arcu. Nunc ac ligula luctus ante
-        eleifend molestie ac eget dolor. Integer ipsum neque, vehicula quis
-        tristique at, convallis id ante. Sed ac sapien eleifend, ornare urna
-        eget, lobortis mi. Cras enim tortor, interdum sit amet gravida nec,
-        ultrices ac magna.
+        We buy, sell, and trade everything from the Magnavox Odyssey to the Xbox
+        Series X. Bring in your old games and find a &quot;new&quot; favorite.
       </p>
       <img
         id="consoles-and-controllers"
@@ -25,13 +20,8 @@ const Home = () => {
         alt="Store display case with boxed consoles and controllers"
       />
       <p id="home-second-block-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum
-        porttitor risus, id fringilla ante viverra nec. Aliquam tortor lorem,
-        mollis quis ex ut, elementum mollis arcu. Nunc ac ligula luctus ante
-        eleifend molestie ac eget dolor. Integer ipsum neque, vehicula quis
-        tristique at, convallis id ante. Sed ac sapien eleifend, ornare urna
-        eget, lobortis mi. Cras enim tortor, interdum sit amet gravida nec,
-        ultrices ac magna.
+        Have a dead console or a controller with stick drift? We can fix almost
+        anything!
       </p>
       <img
         id="home-store-display"

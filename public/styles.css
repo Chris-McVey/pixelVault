@@ -30,9 +30,8 @@
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: auto auto auto auto auto;
-  /* background-image: url('../assets/scratchBlue.jpg');
-  background-size: cover;
-  color: white; */
+  /* background-image: url('../assets/spaceInvaders.jpg');
+  background-size: cover; */
 }
 
 #home-heading {
@@ -55,11 +54,13 @@
 #home-first-block-text {
   grid-column-start: 2;
   grid-row-start: 2;
+  margin: auto;
 }
 
 #home-second-block-text {
   grid-column-start: 1;
   grid-row-start: 3;
+  margin: auto;
 }
 
 #consoles-and-controllers {
@@ -138,6 +139,7 @@
 #events-page-container {
   background-image: url('../assets/spaceInvaders.jpg');
   background-size: contain;
+  /* min-height: 80vh; */
 }
 
 #events-heading {
@@ -157,6 +159,7 @@
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: auto auto auto;
+  /* min-height: 80vh; */
 }
 
 #contact-heading {
@@ -220,4 +223,24 @@ h3 {
 
 .trash:hover {
   cursor: crosshair;
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 1000px) {
+  #events-page-container,
+  #contact-container,
+  #news-container {
+    min-height: 80vh;
+  }
+}
+
+/* BACKGROUND COLOR */
+
+#events-page-container,
+#contact-container,
+#news-container,
+#home-container {
+  background-color: rgb(61, 59, 175);
+  color: white;
 }
