@@ -107,6 +107,8 @@
 
 #news-heading {
   text-align: center;
+  margin-top: 0px;
+  padding-top: 10px;
 }
 
 .news-entry {
@@ -145,6 +147,8 @@
 #events-heading {
   text-align: center;
   color: white;
+  margin-top: 0px;
+  padding-top: 20px;
 }
 
 #google-calendar {
@@ -347,7 +351,7 @@ h3 {
 
 #events-page-container,
 #contact-container,
-#news-container,
-#home-container {
+#news-outer-container,
+#home-outer-container {
   background-color: rgb(207, 205, 205);
 }
