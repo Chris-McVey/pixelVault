@@ -277,6 +277,70 @@ h3 {
     margin-left: auto;
     margin-right: auto;
   }
+
+  #home-container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto auto auto auto auto;
+    /* background-image: url('../assets/spaceInvaders.jpg');
+    background-size: cover; */
+  }
+
+  #home-heading {
+    text-align: center;
+    grid-column-start: 1;
+  }
+
+  #games-in-case {
+    grid-column-start: 1;
+    grid-row-start: 3;
+    max-width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  #home-first-block-text {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    margin: auto;
+  }
+
+  #home-second-block-text {
+    grid-column-start: 1;
+    grid-row-start: 4;
+    margin: auto;
+  }
+
+  #consoles-and-controllers {
+    grid-column-start: 2;
+    grid-row-start: 5;
+    max-width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  #home-store-display {
+    grid-column-start: 1;
+    grid-row-start: 6;
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  #home-third-block-text {
+    grid-column-start: 1;
+    grid-row-start: 7;
+    text-align: center;
+  }
 }
 
 /* BACKGROUND COLOR */
