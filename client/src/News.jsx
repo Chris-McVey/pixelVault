@@ -5,12 +5,10 @@ import NewsFeed from './NewsFeed.jsx';
 
 const News = () => {
   return (
-    <div id="news-container">
-      <Container>
-        <h1 id="news-heading">News and Updates</h1>
-        <NewsFeed />
-      </Container>
-    </div>
+    <Container id="news-container">
+      <h1 id="news-heading">News and Updates</h1>
+      <NewsFeed />
+    </Container>
   );
 };
 
