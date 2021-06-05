@@ -97,6 +97,8 @@
 
 #instagram-heading {
   text-align: center;
+  margin-top: 0px;
+  padding-top: 20px;
 }
 
 /* NEWS PAGE */
@@ -352,6 +354,7 @@ h3 {
 #events-page-container,
 #contact-container,
 #news-outer-container,
-#home-outer-container {
+#home-outer-container,
+#instagram-container {
   background-color: rgb(207, 205, 205);
 }
