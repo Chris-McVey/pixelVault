@@ -24,6 +24,11 @@
   margin-right: auto;
 }
 
+#headerButtons Button {
+  background-color: #e4000f;
+  border-color: rgb(167, 33, 33);
+}
+
 /* HOME PAGE */
 
 #home-container {
@@ -356,5 +361,5 @@ h3 {
 #news-outer-container,
 #home-outer-container,
 #instagram-container {
-  background-color: rgb(207, 205, 205);
+  background-color: #a8aaaa;
 }
