@@ -211,6 +211,13 @@ a:visited {
   color: white;
 }
 
+#home-container img,
+#contact-container img,
+#map-holder {
+  border-style: double;
+  box-shadow: 5px 7px;
+}
+
 /* body {
   font-family: 'manaspaceregular';
 } */
