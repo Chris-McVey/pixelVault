@@ -29,13 +29,10 @@ const Home = () => {
         alt="In-store display depicting scene with Mario, Link, and other video game characters"
       />
       <p id="home-third-block-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum
-        porttitor risus, id fringilla ante viverra nec. Aliquam tortor lorem,
-        mollis quis ex ut, elementum mollis arcu. Nunc ac ligula luctus ante
-        eleifend molestie ac eget dolor. Integer ipsum neque, vehicula quis
-        tristique at, convallis id ante. Sed ac sapien eleifend, ornare urna
-        eget, lobortis mi. Cras enim tortor, interdum sit amet gravida nec,
-        ultrices ac magna.
+        Pixel Vault Games has been the Inland Empire&apos;s favorite spot for
+        all things retro games since 2005 (verify this). We are a family owned
+        and family friendly shop that strives to make you feel welcome,
+        comfortable, and nostalgiac for the good old days.
       </p>
     </Container>
   );
