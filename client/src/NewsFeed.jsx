@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@material-ui/core';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 import NewsEntry from './NewsEntry.jsx';
 
@@ -71,6 +72,10 @@ const NewsFeed = ({ handleDelete }) => {
       />
     </div>
   );
+};
+
+NewsFeed.propTypes = {
+  handleDelete: PropTypes.func,
 };
 
 export default NewsFeed;
