@@ -78,4 +78,8 @@ NewsFeed.propTypes = {
   handleDelete: PropTypes.func,
 };
 
+NewsFeed.defaultProps = {
+  handleDelete: null,
+};
+
 export default NewsFeed;
