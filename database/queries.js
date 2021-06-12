@@ -104,8 +104,8 @@ const authUser = (username, textPassword, cb) => {
   });
 };
 
-//addUser('test', 'someuser');
-//authUser('test', 'someuser');
+// addUser('test', 'someuser');
+// authUser('test', 'someuser');
 module.exports = {
   addNews,
   getNews,
