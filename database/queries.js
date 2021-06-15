@@ -27,6 +27,16 @@ const getNews = (callback) => {
   });
 };
 
+const deleteNews = (id, callback) => {
+  News.deleteOne({ _id: id }, (err, result) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, result);
+    }
+  });
+};
+
 const addUser = (username, password) => {
   // Create the password hash with salt.
   const salt = crypto
@@ -128,9 +138,12 @@ const isUserAuthed = (sessionToken, cb) => {
 //     console.log(res);
 //   }
 // );
+// addUser('test', 'someuser');
+// authUser('test', 'someuser');
 module.exports = {
   addNews,
   getNews,
   authUser,
   isUserAuthed,
+  deleteNews,
 };

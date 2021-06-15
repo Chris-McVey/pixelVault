@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
+=======
+import React, { useState } from 'react';
+import NewsFeed from './NewsFeed.jsx';
+>>>>>>> 5881b2f17b4181a087c12c2cd50079726892db04
 import {
   FormControl,
   InputLabel,
@@ -12,6 +17,17 @@ import NewsForm from './NewsForm';
 import AuthForm from './AuthForm';
 
 const Admin = () => {
+  const handleDelete = (id) => {
+    axios
+      .delete(`/api/news${id}`)
+      .then(() => {
+        location.reload();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   // Check if auth'd
   // Just switch this to true and they can access the admin page, which means we
   // need to use the session storage to validate all actions on the API, and bounce them if
@@ -36,7 +52,13 @@ const Admin = () => {
   if (!authd) {
     return <AuthForm />;
   }
-  return <NewsForm />;
+  return (
+    <div>
+      <NewsForm />
+      <p>Click the trash icon to delete the post. THIS IS PERMANENT!</p>
+      <NewsFeed handleDelete={handleDelete} />
+    </div>
+  );
 };
 
 export default Admin;

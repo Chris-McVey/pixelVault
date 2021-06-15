@@ -2,7 +2,7 @@ import React from 'react';
 
 const Instagram = () => {
   return (
-    <div>
+    <div id="instagram-container">
       <h2 id="instagram-heading">
         Follow us on Instagram to be first to see what&apos;s in stock!
       </h2>

@@ -5,8 +5,8 @@ import NewsFeed from './NewsFeed.jsx';
 
 const News = () => {
   return (
-    <div id="news-container">
-      <Container>
+    <div id="news-outer-container">
+      <Container id="news-container">
         <h1 id="news-heading">News and Updates</h1>
         <NewsFeed />
       </Container>

@@ -71,7 +71,7 @@ const NewsForm = () => {
         <TextField
           required
           label="Post Body"
-          fullwidth
+          fullWidth
           multiline
           rowsMax={10}
           id="post-body"

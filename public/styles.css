@@ -24,15 +24,19 @@
   margin-right: auto;
 }
 
+#headerButtons Button {
+  background-color: #e4000f;
+  border-color: rgb(167, 33, 33);
+}
+
 /* HOME PAGE */
 
 #home-container {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: auto auto auto auto auto;
-  /* background-image: url('../assets/scratchBlue.jpg');
-  background-size: cover;
-  color: white; */
+  /* background-image: url('../assets/spaceInvaders.jpg');
+  background-size: cover; */
 }
 
 #home-heading {
@@ -55,11 +59,13 @@
 #home-first-block-text {
   grid-column-start: 2;
   grid-row-start: 2;
+  margin: auto;
 }
 
 #home-second-block-text {
   grid-column-start: 1;
   grid-row-start: 3;
+  margin: auto;
 }
 
 #consoles-and-controllers {
@@ -96,6 +102,8 @@
 
 #instagram-heading {
   text-align: center;
+  margin-top: 0px;
+  padding-top: 20px;
 }
 
 /* NEWS PAGE */
@@ -106,6 +114,8 @@
 
 #news-heading {
   text-align: center;
+  margin-top: 0px;
+  padding-top: 10px;
 }
 
 .news-entry {
@@ -130,19 +140,29 @@
   margin-top: 10px;
 }
 
+#news-feed Button {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #e4000f;
+}
+
 .news-entry-text {
 }
 
 /* EVENTS PAGE */
 
 #events-page-container {
-  background-image: url('../assets/spaceInvaders.jpg');
-  background-size: contain;
+  /* background-image: url('../assets/spaceInvaders.jpg');
+  background-size: contain; */
+  /* min-height: 80vh; */
 }
 
 #events-heading {
   text-align: center;
-  color: white;
+  /* color: white; */
+  margin-top: 0px;
+  padding-top: 20px;
 }
 
 #google-calendar {
@@ -157,6 +177,7 @@
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: auto auto auto;
+  /* min-height: 80vh; */
 }
 
 #contact-heading {
@@ -204,16 +225,148 @@ a:visited {
   color: white;
 }
 
-/* body {
-  font-family: 'manaspaceregular';
-} */
-
-/* p {
-  font-family: 'manaspaceregular';
-} */
+#home-container img,
+#contact-container img,
+#map-holder,
+#news-container img {
+  border-style: double;
+  box-shadow: 5px 7px rgba(0, 0, 0, 0.534);
+}
 
 h1,
 h2,
 h3 {
   font-family: 'manaspaceregular';
+}
+
+.trash:hover {
+  cursor: crosshair;
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 1000px) {
+  #events-page-container,
+  #contact-container,
+  #news-container {
+    min-height: 80vh;
+  }
+
+  #contact-container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto auto auto;
+  }
+
+  #contact-heading {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    text-align: center;
+  }
+
+  #phone-sm {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    text-align: center;
+  }
+
+  #hours-holder {
+    grid-column-start: 1;
+    grid-row-start: 3;
+    text-align: center;
+  }
+
+  #map-holder {
+    grid-column-start: 1;
+    grid-row-start: 4;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 80%;
+  }
+  #image-next-to-map {
+    grid-column-start: 1;
+    grid-row-start: 5;
+  }
+
+  #image-next-to-map img {
+    height: auto;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #home-container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto auto auto auto auto;
+    /* background-image: url('../assets/spaceInvaders.jpg');
+    background-size: cover; */
+  }
+
+  #home-heading {
+    text-align: center;
+    grid-column-start: 1;
+  }
+
+  #games-in-case {
+    grid-column-start: 1;
+    grid-row-start: 3;
+    max-width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  #home-first-block-text {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    margin: auto;
+  }
+
+  #home-second-block-text {
+    grid-column-start: 1;
+    grid-row-start: 4;
+    margin: auto;
+  }
+
+  #consoles-and-controllers {
+    grid-column-start: 2;
+    grid-row-start: 5;
+    max-width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  #home-store-display {
+    grid-column-start: 1;
+    grid-row-start: 6;
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  #home-third-block-text {
+    grid-column-start: 1;
+    grid-row-start: 7;
+    text-align: center;
+  }
+}
+
+/* BACKGROUND COLOR */
+
+#events-page-container,
+#contact-container,
+#news-outer-container,
+#home-outer-container,
+#instagram-container {
+  background-color: #a8aaaa;
 }

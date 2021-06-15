@@ -8,6 +8,7 @@ const {
   getNews,
   authUser,
   isUserAuthed,
+  deleteNews,
 } = require('../database/queries.js');
 
 const app = express();
@@ -50,6 +51,17 @@ app.post('/api/news', (req, res) => {
 
 app.get('/api/news', (req, res) => {
   getNews((err, result) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(result);
+    }
+  });
+});
+
+app.delete('/api/news:id', (req, res) => {
+  const { id } = req.params;
+  deleteNews(id, (err, result) => {
     if (err) {
       res.status(500).send(err);
     } else {

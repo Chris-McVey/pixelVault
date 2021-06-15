@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@material-ui/core';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 import NewsEntry from './NewsEntry.jsx';
 
-const NewsFeed = () => {
+const NewsFeed = ({ handleDelete }) => {
   const [newsList, setNewsList] = useState([]);
   const [displayed, setDisplayed] = useState([]);
 
@@ -42,7 +43,16 @@ const NewsFeed = () => {
   return (
     <div id="news-feed">
       {displayed.map(({ _id, title, date, text }) => {
-        return <NewsEntry key={_id} title={title} date={date} text={text} />;
+        return (
+          <NewsEntry
+            key={_id}
+            _id={_id}
+            title={title}
+            date={date}
+            text={text}
+            handleDelete={handleDelete}
+          />
+        );
       })}
       {newsList.length ? (
         <Button
@@ -62,6 +72,14 @@ const NewsFeed = () => {
       />
     </div>
   );
+};
+
+NewsFeed.propTypes = {
+  handleDelete: PropTypes.func,
+};
+
+NewsFeed.defaultProps = {
+  handleDelete: null,
 };
 
 export default NewsFeed;
