@@ -13,6 +13,7 @@ const userSchema = mongoose.Schema({
   password: String,
   sessionToken: String,
   salt: String,
+  expiration: Date,
 });
 
 const User = mongoose.model('User', userSchema);

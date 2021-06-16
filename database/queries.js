@@ -67,7 +67,7 @@ const addUser = (username, password) => {
 // This function auths a user, and creates a new session token if they auth.
 // If we can't find the user we call back with null result.
 const authUser = (username, textPassword, cb) => {
-  User.find({ username }, (err, result) => {
+  User.findOne({ username }, (err, result) => {
     if (err) {
       cb(err, null);
     } else {
@@ -75,7 +75,7 @@ const authUser = (username, textPassword, cb) => {
         cb(null, false); // let the api know that there isn't a user.
       }
       // Peform password hashing on incoming plaintext.
-      const { salt, password } = result[0];
+      const { salt, password } = result;
       let hash = crypto.createHmac(
         'sha512',
         salt
@@ -90,25 +90,60 @@ const authUser = (username, textPassword, cb) => {
       if (checkString === password) {
         // Assign a session ID to the user and send back the session ID.
         const sessionToken = crypto.randomBytes(Math.ceil(32)).toString('hex');
+
+        const expiration = new Date(Date.now());
+        expiration.setHours(expiration.getHours() + 24);
+
         // update the user to a new session_id.
-        User.findOneAndUpdate({ id: result.id }, { sessionToken })
+        User.findOneAndUpdate({ username }, { sessionToken, expiration })
           .then((data) => {
             cb(null, sessionToken);
           })
           .catch((e) => cb(e, null));
       } else {
         // If the password is invalid, we need to let the api know.
-        cb(new Error('Invalid Token'), null);
+        cb(new Error('Invalid Creds'), null);
       }
     }
   });
 };
 
+const isUserAuthed = (sessionToken, cb) => {
+  User.findOne({
+    sessionToken,
+  })
+    .then((data) => {
+      if (!data) {
+        cb(null, false);
+        return;
+      }
+      const currentTime = Date.now();
+      if (data.expiration <= currentTime) {
+        cb(null, false);
+        return;
+      }
+      cb(null, true);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
+
+//addUser('test', 'someuser');
+//authUser('test', 'someuser');
+//addUser('user', 'password');
+// isUserAuthed(
+//   '6022469172779ae77cf652933cc6858737542bd8bc14ef62d5f16c8b0519bc7c',
+//   (err, res) => {
+//     console.log(res);
+//   }
+// );
 // addUser('test', 'someuser');
 // authUser('test', 'someuser');
 module.exports = {
   addNews,
   getNews,
   authUser,
+  isUserAuthed,
   deleteNews,
 };
