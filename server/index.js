@@ -18,6 +18,17 @@ const port = process.env.PORT || 3000;
 app.use(express.static('public'));
 app.use(bodyParser.json()); // Could use express.json.
 
+const parseCookie = (rawCookies) => {
+  const cookies = rawCookies.split('; ');
+  let passedCookie;
+  cookies.forEach((cookie) => {
+    if (cookie.includes('token')) {
+      passedCookie = cookie.split('=')[1];
+    }
+  });
+  return passedCookie;
+};
+
 app.use('/admin/private/*', (req, res) => {
   const adminIndex = path.join(__dirname, '../private/index.html');
   const targetFile = path.join(
@@ -26,13 +37,7 @@ app.use('/admin/private/*', (req, res) => {
   );
 
   // check to see if the cookie is proper for the user.
-  const cookies = req.headers.cookie.split('; ');
-  let passedCookie;
-  cookies.forEach((cookie) => {
-    if (cookie.includes('token')) {
-      passedCookie = cookie.split('=')[1];
-    }
-  });
+  const passedCookie = parseCookie(req.headers.cookie);
   if (!passedCookie) {
     res.send('invalid access');
     return;
@@ -47,28 +52,6 @@ app.use('/admin/private/*', (req, res) => {
     }
   });
 });
-
-// app.get('/admin/admin', (req, res) => {
-//   const adminIndex = path.join(__dirname, '../private/index.html');
-//   // check to see if the cookie is proper for the user.
-//   const cookies = req.headers.cookie.split('; ');
-//   let passedCookie;
-//   cookies.forEach((cookie) => {
-//     if (cookie.includes('token')) {
-//       passedCookie = cookie.split('=')[1];
-//     }
-//   });
-//   if (!passedCookie) {
-//     res.send('invalid access');
-//     return;
-//   }
-//   isUserAuthed(passedCookie, (e, r) => {
-//     if (!r) {
-//       res.send('invalid access');
-//     } else {
-//     }
-//   });
-// });
 
 // Auth code
 app.post('/api/auth', (req, res) => {
@@ -93,11 +76,23 @@ app.post('/api/isauthd', (req, res) => {
 
 app.post('/api/news', (req, res) => {
   const newsContent = req.body;
-  addNews(newsContent, (err, result) => {
-    if (err) {
-      res.status(500).send(err);
+  const passedCookie = parseCookie(req.headers.cookie);
+  if (!passedCookie) {
+    res.status(401).send('invalid access');
+    return;
+  }
+  isUserAuthed(passedCookie, (e, r) => {
+    if (!r) {
+      res.clearCookie('token');
+      res.status(401).send('invalid access');
     } else {
-      res.status(201).send(result);
+      addNews(newsContent, (err, result) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.status(201).send(result);
+        }
+      });
     }
   });
 });
@@ -114,11 +109,23 @@ app.get('/api/news', (req, res) => {
 
 app.delete('/api/news:id', (req, res) => {
   const { id } = req.params;
-  deleteNews(id, (err, result) => {
-    if (err) {
-      res.status(500).send(err);
+  const passedCookie = parseCookie(req.headers.cookie);
+  if (!passedCookie) {
+    res.status(401).send('invalid access');
+    return;
+  }
+  isUserAuthed(passedCookie, (e, r) => {
+    if (!r) {
+      res.clearCookie('token');
+      res.status(401).send('invalid access');
     } else {
-      res.status(200).send(result);
+      deleteNews(id, (err, result) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.status(200).send(result);
+        }
+      });
     }
   });
 });
