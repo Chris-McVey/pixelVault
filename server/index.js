@@ -18,8 +18,13 @@ const port = process.env.PORT || 3000;
 app.use(express.static('public'));
 app.use(bodyParser.json()); // Could use express.json.
 
-app.use('/admin/admin', (req, res) => {
+app.use('/admin/private/*', (req, res) => {
   const adminIndex = path.join(__dirname, '../private/index.html');
+  const targetFile = path.join(
+    __dirname,
+    `../private/${req.baseUrl.split('/')[3]}`
+  );
+
   // check to see if the cookie is proper for the user.
   const cookies = req.headers.cookie.split('; ');
   let passedCookie;
@@ -34,9 +39,11 @@ app.use('/admin/admin', (req, res) => {
   }
   isUserAuthed(passedCookie, (e, r) => {
     if (!r) {
+      res.clearCookie('token');
+
       res.send('invalid access');
     } else {
-      res.send(express.static('private'));
+      res.sendFile(targetFile);
     }
   });
 });

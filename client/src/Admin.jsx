@@ -53,7 +53,7 @@ const Admin = () => {
   if (!hasCookie) {
     return <AuthForm />;
   } else {
-    location.replace('/admin/admin');
+    location.replace('/admin/private/index.html');
   }
 
   return <div></div>;
