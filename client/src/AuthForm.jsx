@@ -33,10 +33,21 @@ const AuthForm = () => {
     if (authState.password === '' || authState.user === '') {
       return;
     }
-    axios.post('/api/auth', {
-      username: authState.username,
-      password: authState.password,
-    });
+
+    axios
+      .post('/api/auth', {
+        username: authState.user,
+        password: authState.password,
+      })
+      .then((data) => {
+        const token = data.data;
+        const cookie = `token=${token}`;
+        document.cookie = cookie;
+        location.reload();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
   return (
     <div className="login-div">

@@ -1,39 +1,26 @@
 import React, { useState } from 'react';
-import NewsFeed from './NewsFeed.jsx';
-import {
-  FormControl,
-  InputLabel,
-  Input,
-  FormHelperText,
-  TextField,
-  Button,
-} from '@material-ui/core';
 import axios from 'axios';
 import NewsForm from './NewsForm';
 import AuthForm from './AuthForm';
 
 const Admin = () => {
-  const handleDelete = (id) => {
-    axios
-      .delete(`/api/news${id}`)
-      .then(() => {
-        location.reload();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  const cookies = document.cookie.split(';');
+  let hasCookie = false;
+  cookies.forEach((ele) => {
+    if (ele.split('=')[0].includes('token')) {
+      hasCookie = true;
+    }
+  });
 
-  // Check if auth'd
-  if (!sessionStorage.getItem('session_id')) {
+  if (!hasCookie) {
     return <AuthForm />;
+  } else {
+    location.replace('/admin/private/index.html');
   }
-
+  // Should be unreachable.
   return (
     <div>
-      <NewsForm />
-      <p>Click the trash icon to delete the post. THIS IS PERMANENT!</p>
-      <NewsFeed handleDelete={handleDelete} />
+      <AuthForm />
     </div>
   );
 };
