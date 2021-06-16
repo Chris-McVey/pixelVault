@@ -4,7 +4,6 @@ import NewsForm from './NewsForm';
 import NewsFeed from './NewsFeed';
 
 const App = (props) => {
-  // FIXME: This code doesn't properly pass cookies.
   const handleDelete = (id) => {
     axios
       .delete(`/api/news${id}`)
