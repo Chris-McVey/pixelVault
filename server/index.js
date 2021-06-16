@@ -10,6 +10,7 @@ const {
   isUserAuthed,
   deleteNews,
 } = require('../database/queries.js');
+const { Db } = require('mongodb');
 
 const app = express();
 
@@ -17,11 +18,50 @@ const port = process.env.PORT || 3000;
 app.use(express.static('public'));
 app.use(bodyParser.json()); // Could use express.json.
 
-app.get('/admin/admin', (req, res) => {
+app.use('/admin/admin', (req, res) => {
   const adminIndex = path.join(__dirname, '../private/index.html');
-  debugger;
-  res.sendFile(adminIndex);
+  // check to see if the cookie is proper for the user.
+  const cookies = req.headers.cookie.split('; ');
+  let passedCookie;
+  cookies.forEach((cookie) => {
+    if (cookie.includes('token')) {
+      passedCookie = cookie.split('=')[1];
+    }
+  });
+  if (!passedCookie) {
+    res.send('invalid access');
+    return;
+  }
+  isUserAuthed(passedCookie, (e, r) => {
+    if (!r) {
+      res.send('invalid access');
+    } else {
+      res.send(express.static('private'));
+    }
+  });
 });
+
+// app.get('/admin/admin', (req, res) => {
+//   const adminIndex = path.join(__dirname, '../private/index.html');
+//   // check to see if the cookie is proper for the user.
+//   const cookies = req.headers.cookie.split('; ');
+//   let passedCookie;
+//   cookies.forEach((cookie) => {
+//     if (cookie.includes('token')) {
+//       passedCookie = cookie.split('=')[1];
+//     }
+//   });
+//   if (!passedCookie) {
+//     res.send('invalid access');
+//     return;
+//   }
+//   isUserAuthed(passedCookie, (e, r) => {
+//     if (!r) {
+//       res.send('invalid access');
+//     } else {
+//     }
+//   });
+// });
 
 // Auth code
 app.post('/api/auth', (req, res) => {

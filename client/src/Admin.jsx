@@ -56,13 +56,7 @@ const Admin = () => {
     location.replace('/admin/admin');
   }
 
-  return (
-    <div>
-      <NewsForm />
-      <p>Click the trash icon to delete the post. THIS IS PERMANENT!</p>
-      <NewsFeed handleDelete={handleDelete} />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Admin;
