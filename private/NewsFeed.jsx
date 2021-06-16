@@ -65,11 +65,6 @@ const NewsFeed = ({ handleDelete }) => {
           More
         </Button>
       ) : null}
-      <img
-        id="game-over"
-        src="../assets/gameOver.jpg"
-        alt="Old school arcade screen showing the words 'Game Over'"
-      />
     </div>
   );
 };
