@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
-=======
-import React, { useState } from 'react';
+
 import NewsFeed from './NewsFeed.jsx';
->>>>>>> 5881b2f17b4181a087c12c2cd50079726892db04
 import {
   FormControl,
   InputLabel,
@@ -34,24 +31,31 @@ const Admin = () => {
   // we get an non validated action. Maybe we can make an API request on the following page with
   // the auth token and then if it doesn't match up bounce them back.
   const [authd, changeAuth] = useState(false);
-  if (sessionStorage.getItem('session_id') && !authd) {
-    useEffect(() => {
-      axios
-        .post('/api/isauthd', {
-          sessionToken: sessionStorage.getItem('session_id'),
-        })
-        .then((data) => {
-          changeAuth({ authd: data.data });
-        });
-    }, []);
-  }
-  if (!sessionStorage.getItem('session_id')) {
+  // if (sessionStorage.getItem('session_id') && !authd) {
+  //   useEffect(() => {
+  //     axios
+  //       .post('/api/isauthd', {
+  //         sessionToken: sessionStorage.getItem('session_id'),
+  //       })
+  //       .then((data) => {
+  //         changeAuth({ authd: data.data });
+  //       });
+  //   }, []);
+  // }
+  const cookies = document.cookie.split(';');
+  let hasCookie = false;
+  cookies.forEach((ele) => {
+    if (ele.split('=')[0].includes('token')) {
+      hasCookie = true;
+    }
+  });
+
+  if (!hasCookie) {
     return <AuthForm />;
+  } else {
+    location.replace('/admin/admin');
   }
-  //debugger;
-  if (!authd) {
-    return <AuthForm />;
-  }
+
   return (
     <div>
       <NewsForm />

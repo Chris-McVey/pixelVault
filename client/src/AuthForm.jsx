@@ -41,7 +41,8 @@ const AuthForm = () => {
       })
       .then((data) => {
         const token = data.data;
-        sessionStorage.setItem('session_id', token);
+        const cookie = `token=${token}`;
+        document.cookie = cookie;
         location.reload();
       })
       .catch((e) => {

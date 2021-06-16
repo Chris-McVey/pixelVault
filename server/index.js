@@ -17,6 +17,12 @@ const port = process.env.PORT || 3000;
 app.use(express.static('public'));
 app.use(bodyParser.json()); // Could use express.json.
 
+app.get('/admin/admin', (req, res) => {
+  const adminIndex = path.join(__dirname, '../private/index.html');
+  debugger;
+  res.sendFile(adminIndex);
+});
+
 // Auth code
 app.post('/api/auth', (req, res) => {
   authUser(req.body.username, req.body.password, (err, result) => {
