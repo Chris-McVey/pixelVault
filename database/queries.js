@@ -129,17 +129,6 @@ const isUserAuthed = (sessionToken, cb) => {
     });
 };
 
-//addUser('test', 'someuser');
-//authUser('test', 'someuser');
-//addUser('user', 'password');
-// isUserAuthed(
-//   '6022469172779ae77cf652933cc6858737542bd8bc14ef62d5f16c8b0519bc7c',
-//   (err, res) => {
-//     console.log(res);
-//   }
-// );
-// addUser('test', 'someuser');
-// authUser('test', 'someuser');
 module.exports = {
   addNews,
   getNews,
