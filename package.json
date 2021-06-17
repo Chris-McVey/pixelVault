@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "build": "webpack -w",
-    "aws": "ssh -i 'PixelVaultGames.pem' ubuntu@ec2-52-53-225-36.us-west-1.compute.amazonaws.com"
+    "aws": "ssh -i 'PixelVaultGames.pem' ubuntu@ec2-52-9-46-194.us-west-1.compute.amazonaws.com"
   },
   "repository": {
     "type": "git",

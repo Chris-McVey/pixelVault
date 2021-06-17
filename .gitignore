@@ -107,3 +107,6 @@ dist
 
 config.js
 .env
+PRIVATEKEY.key
+MYCSR.csr
+*.crt
