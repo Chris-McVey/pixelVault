@@ -16,15 +16,17 @@ const Home = () => {
           Xbox Series X. Bring in your old games and find a &quot;new&quot;
           favorite.
         </p>
+        <div className="divider div-transparent" id="first-divider" />
         <img
           id="consoles-and-controllers"
           src="../assets/consolesAndControllers.jpeg"
           alt="Store display case with boxed consoles and controllers"
         />
         <p id="home-second-block-text">
-          Have a dead console or a controller with stick drift? We can fix
-          almost anything!
+          Have a dead console? Broken retro controller or a modern controller
+          with stick drift? Bring it in, chances are we can fix it!
         </p>
+        <div className="divider div-transparent" id="second-divider" />
         <img
           id="home-store-display"
           src="../assets/storeDisplay2.jpeg"
@@ -32,9 +34,9 @@ const Home = () => {
         />
         <p id="home-third-block-text">
           Pixel Vault Games has been the Inland Empire&apos;s favorite spot for
-          all things retro games since 2005 (verify this). We are a family owned
-          and family friendly shop that strives to make you feel welcome,
-          comfortable, and nostalgiac for the good old days.
+          all things retro games since 2014. We are a family owned and family
+          friendly shop that strives to make you feel welcome, comfortable, and
+          nostalgiac for the good old days.
         </p>
       </Container>
     </div>
