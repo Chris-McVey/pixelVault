@@ -1,14 +1,18 @@
 /**
- * Swap meets & store-hosted events. Edit this file to add dates — one slug per occurrence.
- * Optional later: load from Markdown under /content/events with the same shape.
+ * Events load from `content/events/*.md` — edit on GitHub (web UI) or locally.
+ * One Markdown file per occurrence; frontmatter + body description.
  */
+
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 export type ShopEvent = {
   slug: string;
   title: string;
   /** Short line for cards / homepage */
   summary: string;
-  /** Longer body for the detail page (plain text paragraphs, \\n\\n separated) */
+  /** Body below YAML frontmatter — paragraphs separated by blank lines */
   description: string;
   /** ISO 8601 with offset (America/Los_Angeles) */
   startIso: string;
@@ -17,62 +21,80 @@ export type ShopEvent = {
   vendorTips: string[];
 };
 
-export const events: ShopEvent[] = [
-  {
-    slug: "vault-swap-2026-05-17",
-    title: "Vault Swap — May",
-    summary: "Community tables, buyers, and sellers — one room, zero attitude.",
-    description:
-      "Our signature indoor swap meet: private sellers line the floor with bins and displays while the shop stays open for trades and impulse grabs. Bring cash, bring a wagon, and leave time to dig.\n\nFree to browse. Table rentals are first-come online announcement — watch Instagram for the signup drop.",
-    startIso: "2026-05-17T10:00:00-07:00",
-    endIso: "2026-05-17T16:00:00-07:00",
-    vendorTips: [
-      "Arrive up to 30 minutes early if you purchased a vendor slot — staff will direct load-in.",
-      "Power strips are limited; battery handhelds and complete-in-box welcome.",
-      "Children welcome with an adult; crowded aisles — wagons beat shoulder bags.",
-    ],
-  },
-  {
-    slug: "vault-swap-2026-06-14",
-    title: "Vault Swap — June",
-    summary: "Summer session — same energy, longer daylight.",
-    description:
-      "June swap: more daylight for late shoppers and a few extra tables when demand allows. Pixel Vault stays open for purchases, repair drop-off questions, and honest trade quotes.\n\nFollow @pixelvaultgames for vendor announcements and any schedule tweaks.",
-    startIso: "2026-06-14T10:00:00-07:00",
-    endIso: "2026-06-14T16:00:00-07:00",
-    vendorTips: [
-      "Hydrate — inland heat sneaks up even indoors.",
-      "Label imports or repro carts clearly; collectors appreciate transparency.",
-      "Need a repair quote? Bring the console to the counter during swap hours.",
-    ],
-  },
-  {
-    slug: "vault-swap-2026-04-26",
-    title: "Vault Swap — April (past)",
-    summary: "Archive reference — spring crowd, full floor.",
-    description:
-      "Archived listing from our April swap — kept so recurring visitors can see how we format schedules and vendor expectations.\n\nPhotos and reels usually hit Instagram first; the site mirrors confirmed dates.",
-    startIso: "2026-04-26T10:00:00-07:00",
-    endIso: "2026-04-26T16:00:00-07:00",
-    vendorTips: [
-      "Past event — details preserved for consistency.",
-    ],
-  },
-];
+const EVENTS_DIR = path.join(process.cwd(), "content/events");
+
+function parseEventFile(filePath: string): ShopEvent {
+  const raw = fs.readFileSync(filePath, "utf8");
+  const { data, content } = matter(raw);
+
+  const slug = data.slug;
+  const title = data.title;
+  const summary = data.summary;
+  const startIso = data.startIso;
+  const endIso = data.endIso;
+
+  if (
+    typeof slug !== "string" ||
+    typeof title !== "string" ||
+    typeof summary !== "string" ||
+    typeof startIso !== "string" ||
+    typeof endIso !== "string"
+  ) {
+    throw new Error(
+      `Invalid frontmatter in ${filePath}: slug, title, summary, startIso, endIso are required strings.`,
+    );
+  }
+
+  const vendorTips = Array.isArray(data.vendorTips)
+    ? data.vendorTips.map((t: unknown) => String(t))
+    : [];
+
+  return {
+    slug,
+    title,
+    summary,
+    description: content.trim(),
+    startIso,
+    endIso,
+    vendorTips,
+  };
+}
+
+function loadEventsFromDisk(): ShopEvent[] {
+  if (!fs.existsSync(EVENTS_DIR)) {
+    return [];
+  }
+
+  const files = fs
+    .readdirSync(EVENTS_DIR)
+    .filter((f) => f.endsWith(".md") && f.toLowerCase() !== "readme.md");
+  const events: ShopEvent[] = [];
+
+  for (const file of files) {
+    events.push(parseEventFile(path.join(EVENTS_DIR, file)));
+  }
+
+  return events;
+}
 
 function parseInstant(iso: string): number {
   return new Date(iso).getTime();
 }
 
+/** Raw list from disk (unsorted) */
+export function getEvents(): ShopEvent[] {
+  return loadEventsFromDisk();
+}
+
 /** All events, soonest start first */
 export function getAllEventsSorted(): ShopEvent[] {
-  return [...events].sort(
+  return [...loadEventsFromDisk()].sort(
     (a, b) => parseInstant(a.startIso) - parseInstant(b.startIso),
   );
 }
 
 export function getEventBySlug(slug: string): ShopEvent | undefined {
-  return events.find((e) => e.slug === slug);
+  return loadEventsFromDisk().find((e) => e.slug === slug);
 }
 
 /** Events whose end time is still in the future (relative to now). */

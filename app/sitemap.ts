@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { events } from "@/lib/events";
+import { getAllEventsSorted } from "@/lib/events";
 import { getCanonicalSiteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === "" ? 1 : 0.75,
   }));
 
-  for (const e of events) {
+  for (const e of getAllEventsSorted()) {
     items.push({
       url: `${base}/events/${e.slug}`,
       lastModified: new Date(),

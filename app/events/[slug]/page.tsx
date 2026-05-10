@@ -3,8 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EventJsonLd } from "@/components/event-json-ld";
 import {
-  events,
   formatEventRange,
+  getAllEventsSorted,
   getEventBySlug,
 } from "@/lib/events";
 import { formatStreetAddress, site } from "@/lib/site";
@@ -14,7 +14,7 @@ type Props = {
 };
 
 export function generateStaticParams() {
-  return events.map((e) => ({ slug: e.slug }));
+  return getAllEventsSorted().map((e) => ({ slug: e.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
