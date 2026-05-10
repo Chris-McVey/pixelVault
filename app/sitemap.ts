@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/repair",
     "/trade-in",
+    "/authenticity",
     "/about",
   ];
 

@@ -73,6 +73,13 @@ export default function TradeInPage() {
             we&apos;ll explain how we reached a number (comps, condition tier, local velocity) so you
             can decide in the moment.
           </p>
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-zinc-500">
+            Authenticity is part of every quote — see{" "}
+            <Link href="/authenticity" className="font-medium text-[var(--brand)] hover:underline">
+              how we inspect &amp; label repros
+            </Link>
+            .
+          </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             <div className="rounded-2xl border border-dashed border-[var(--brand)]/30 bg-[var(--brand)]/5 p-6">
               <p className="text-sm font-semibold uppercase tracking-wider text-[var(--brand)]">
@@ -109,9 +116,14 @@ export default function TradeInPage() {
           <Link href="/" className="text-sm font-medium text-zinc-500 hover:text-[var(--brand)]">
             ← Home
           </Link>
-          <Link href="/repair" className="text-sm font-semibold text-[var(--brand)] hover:underline">
-            Repair services →
-          </Link>
+          <div className="flex flex-wrap gap-6">
+            <Link href="/repair" className="text-sm font-semibold text-[var(--brand)] hover:underline">
+              Repair services →
+            </Link>
+            <Link href="/authenticity" className="text-sm font-semibold text-zinc-400 hover:text-[var(--brand)]">
+              Authenticity →
+            </Link>
+          </div>
         </div>
       </section>
     </>

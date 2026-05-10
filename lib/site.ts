@@ -68,6 +68,7 @@ export const mainNav: NavItem[] = [
   { href: "/events", label: "Events & swaps" },
   { href: "/repair", label: "Repair" },
   { href: "/trade-in", label: "Trade-in" },
+  { href: "/authenticity", label: "Authenticity" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Visit" },
 ];
