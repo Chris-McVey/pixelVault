@@ -15,7 +15,7 @@ const { Db } = require('mongodb');
 const app = express();
 
 const port = process.env.PORT || 3000;
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '..', '..', 'public')));
 app.use(bodyParser.json()); // Could use express.json.
 
 const parseCookie = (rawCookies) => {
@@ -130,10 +130,10 @@ app.delete('/api/news:id', (req, res) => {
   });
 });
 
-app.use('/assets', express.static('assets'));
+app.use('/assets', express.static(path.join(__dirname, '..', '..', 'assets')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'));
 });
 
 app.listen(port, () => {
