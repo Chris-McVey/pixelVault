@@ -1,55 +1,41 @@
 {
   "name": "pixelvault",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "description": "Pixel Vault Games — Next.js marketing site (App Router). Legacy webpack app lives in legacy/webpack-site/.",
   "scripts": {
-    "start": "nodemon server/index.js",
-    "build": "webpack -w",
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint",
+    "legacy:install": "npm install --prefix legacy/webpack-site",
+    "legacy:start": "npm run start --prefix legacy/webpack-site",
+    "legacy:build": "npm run build --prefix legacy/webpack-site",
     "aws": "ssh -i 'PixelVaultGames.pem' ubuntu@ec2-52-9-46-194.us-west-1.compute.amazonaws.com"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Chris-McVey/pixelVault.git"
   },
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Chris-McVey/pixelVault/issues"
   },
   "homepage": "https://github.com/Chris-McVey/pixelVault#readme",
   "dependencies": {
-    "@babel/core": "^7.14.2",
-    "@babel/preset-env": "^7.14.2",
-    "@babel/preset-react": "^7.13.13",
-    "@material-ui/core": "^4.11.4",
-    "@material-ui/icons": "^4.11.2",
-    "axios": "^0.21.1",
-    "babel-loader": "^8.2.2",
-    "body-parser": "^1.19.0",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "mongodb": "^3.6.9",
-    "mongoose": "^5.12.11",
-    "nodemon": "^2.0.7",
-    "prettier": "^2.3.0",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0",
-    "serve-favicon": "^2.5.0",
-    "webpack": "^5.37.0",
-    "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2"
+    "next": "15.5.18",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "eslint": "^7.26.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.23.2",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.18",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }

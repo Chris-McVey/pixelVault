@@ -1,9 +1,9 @@
 const path = require('path');
 
-const SRC_DIR = path.join(__dirname, '/client/src');
-const DIST_DIR = path.join(__dirname, '/public/dist');
-const priv_src = path.join(__dirname, '/private');
-const priv_dist = path.join(__dirname, '/private');
+const SRC_DIR = path.join(__dirname, 'client/src');
+const DIST_DIR = path.join(__dirname, '..', '..', 'public', 'dist');
+const priv_src = path.join(__dirname, 'private');
+const priv_dist = path.join(__dirname, 'private');
 const publicConfig = {
   entry: `${SRC_DIR}/index.jsx`,
   mode: 'development',
