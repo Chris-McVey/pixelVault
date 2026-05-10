@@ -33,9 +33,7 @@ npm run legacy:build
 
 ## Docs
 
-- `docs/AUDIT.md` — codebase audit  
-- `docs/MODERNIZATION.md` — migration plan  
-- `docs/ROADMAP.md` — features & SEO  
+Canonical audit, modernization plan, and roadmap live in the **Athena vault** (`~/projects/athena/`). See **`docs/README.md`** in this repo for vault paths and MCP access.
 
 ## Requirements
 
