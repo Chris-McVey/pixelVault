@@ -33,8 +33,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Browser extensions (e.g. Dark Reader) inject attributes on <html> before hydrate — suppressHydrationWarning avoids false mismatches.
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col bg-[var(--background)] font-sans antialiased text-zinc-100`}
       >

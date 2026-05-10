@@ -1,9 +1,9 @@
-import Link from "next/link";
-import { site } from "@/lib/site";
+import Link from 'next/link';
+import { site } from '@/lib/site';
 
 export function SiteFooter() {
   const mapsQuery = encodeURIComponent(
-    `${site.address.street}, ${site.address.city}, ${site.address.region} ${site.address.postalCode}`,
+    `${site.address.street}, ${site.address.city}, ${site.address.region} ${site.address.postalCode}`
   );
 
   return (
@@ -15,7 +15,7 @@ export function SiteFooter() {
             <p className="mt-2 text-sm leading-relaxed text-zinc-400">
               {site.address.street}
               <br />
-              {site.address.city}, {site.address.region}{" "}
+              {site.address.city}, {site.address.region}{' '}
               {site.address.postalCode}
             </p>
             <p className="mt-3 text-sm text-zinc-400">
@@ -69,9 +69,8 @@ export function SiteFooter() {
           </div>
         </div>
         <p className="mt-10 border-t border-white/5 pt-6 text-xs text-zinc-500">
-          ©{" "}
-          <span suppressHydrationWarning>{new Date().getFullYear()}</span>{" "}
-          {site.name}. Family-owned retro games and events in the Inland Empire.
+          © <span>{new Date().getFullYear()}</span> {site.name}. Family-owned
+          retro games and events in the Inland Empire.
         </p>
       </div>
     </footer>
