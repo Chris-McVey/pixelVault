@@ -35,6 +35,10 @@ npm run legacy:build
 
 Canonical audit, modernization plan, and roadmap live in the **Athena vault** (`~/projects/athena/`). See **`docs/README.md`** in this repo for vault paths and MCP access.
 
+## Production URL
+
+Live site: **https://pixelvaultontario.com**. Set `NEXT_PUBLIC_SITE_URL` to that value in your host (see `.env.example`). On Vercel, canonical URLs still resolve correctly if the env var is omitted (`VERCEL=1` falls back to this domain in code).
+
 ## Requirements
 
 - **Node**: Next 15.5.x expects Node **≥ 18.18**. Use **≥ 20.9** if you hit ESLint engine warnings on older 20.x patch releases.

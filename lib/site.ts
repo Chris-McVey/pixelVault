@@ -1,9 +1,16 @@
 /** Single source for NAP + nav — confirm hours vs Google Business Profile before launch. */
 
+/** Public production origin — JSON-LD, sitemap, metadataBase. Apex domain (no www). */
+export const productionSiteOrigin = "https://pixelvaultontario.com";
+
 export function getCanonicalSiteUrl(): string {
   const u = process.env.NEXT_PUBLIC_SITE_URL;
   if (typeof u === "string" && u.trim().length > 0) {
     return u.replace(/\/$/, "");
+  }
+  /* Vercel sets VERCEL=1 — safe default so OG/sitemap URLs match the live domain if env is missing */
+  if (process.env.VERCEL === "1") {
+    return productionSiteOrigin;
   }
   return "http://localhost:3000";
 }
