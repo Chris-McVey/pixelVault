@@ -69,8 +69,9 @@ export function SiteFooter() {
           </div>
         </div>
         <p className="mt-10 border-t border-white/5 pt-6 text-xs text-zinc-500">
-          © <span>{new Date().getFullYear()}</span> {site.name}. Family-owned
-          retro games and events in the Inland Empire.
+          ©{" "}
+          <span suppressHydrationWarning>{new Date().getFullYear()}</span>{" "}
+          {site.name}. Family-owned retro games and events in the Inland Empire.
         </p>
       </div>
     </footer>

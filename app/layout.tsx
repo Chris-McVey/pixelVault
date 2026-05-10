@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { GlobalJsonLd } from "@/components/global-json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { getCanonicalSiteUrl } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,6 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getCanonicalSiteUrl()),
   title: {
     default: "Pixel Vault Games",
     template: "%s · Pixel Vault Games",
@@ -39,6 +42,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col bg-[var(--background)] font-sans antialiased text-zinc-100`}
       >
+        <GlobalJsonLd />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

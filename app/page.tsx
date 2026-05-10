@@ -1,7 +1,13 @@
 import Link from "next/link";
+import {
+  formatEventRange,
+  getNextFeaturedEvent,
+} from "@/lib/events";
 import { site } from "@/lib/site";
 
 export default function HomePage() {
+  const nextSwap = getNextFeaturedEvent();
+
   return (
     <>
       <section className="relative overflow-hidden border-b border-white/10 bg-gradient-to-b from-[#151922] to-[var(--background)]">
@@ -38,6 +44,44 @@ export default function HomePage() {
               Console &amp; controller repair
             </Link>
           </div>
+
+          {nextSwap ? (
+            <div className="mt-10 max-w-xl rounded-xl border border-[var(--brand)]/35 bg-black/35 px-4 py-5 sm:px-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)]">
+                Next swap
+              </p>
+              <p className="mt-2 text-lg font-semibold text-white">{nextSwap.title}</p>
+              <p className="mt-1 text-sm text-zinc-400">
+                {formatEventRange(nextSwap.startIso, nextSwap.endIso)}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-500">
+                {nextSwap.summary}
+              </p>
+              <Link
+                href={`/events/${nextSwap.slug}`}
+                className="mt-4 inline-flex text-sm font-semibold text-[var(--brand)] hover:underline"
+              >
+                Event details &amp; vendor notes →
+              </Link>
+            </div>
+          ) : (
+            <div className="mt-10 max-w-xl rounded-xl border border-white/10 bg-white/[0.03] px-4 py-5 sm:px-6">
+              <p className="text-sm font-medium text-zinc-300">Next swap date</p>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-500">
+                Dates post here as soon as they&apos;re locked. Get announcements
+                first on{" "}
+                <a
+                  href={site.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-[var(--brand)] hover:underline"
+                >
+                  Instagram
+                </a>
+                .
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
@@ -47,8 +91,7 @@ export default function HomePage() {
             <h2 className="text-lg font-semibold text-white">Vendor swap meets</h2>
             <p className="mt-3 text-sm leading-relaxed text-zinc-400">
               Community tables alongside the shop — buyers, sellers, and regulars
-              in one room. Dates and vendor info will live here as we migrate
-              content.
+              in one room. Dates and vendor notes live on each event page.
             </p>
             <Link
               href="/events"
