@@ -26,18 +26,18 @@ Pixel Vault wins as a **destination**, not a catalog.
 
 Priority order reflects conversion evidence + uniqueness:
 
-| Priority | Route | Purpose |
-|:---:|---|---|
-| P0 | `/` | Hero = **next swap meet** + proof (photos). Secondary fold = owner/staff + reviews. |
-| P0 | `/events` | Upcoming + archive — never only an iframe. |
-| P0 | `/events/[slug]` | Each occurrence — unique copy + **Event JSON-LD** + vendor FAQ. |
-| P0 | `/contact` | NAP, embedded map, parking note, **matching** GBP hours. |
-| P1 | `/repair` | Services list, turnaround guidance, save-data language — finding **08** / Wave 2 voice research. |
-| P1 | `/trade-in` | Transparent policy — publish formula **if approved** (finding **11**). |
-| P1 | `/authenticity` | How you inspect carts / repro handling — finding **09**. |
-| P1 | `/about` | Owner story, **since 2014**, staff faces — finding **10**. |
-| P2 | `/news` | Markdown posts — new arrivals / stories (content-led architecture — finding **07**). |
-| P2 | `/locations/[city]` | IE geo landing pages — finding **16** (roll out gradually). |
+| Priority | Route               | Purpose                                                                                          |
+| :------: | ------------------- | ------------------------------------------------------------------------------------------------ |
+|    P0    | `/`                 | Hero = **next swap meet** + proof (photos). Secondary fold = owner/staff + reviews.              |
+|    P0    | `/events`           | Upcoming + archive — never only an iframe.                                                       |
+|    P0    | `/events/[slug]`    | Each occurrence — unique copy + **Event JSON-LD** + vendor FAQ.                                  |
+|    P0    | `/contact`          | NAP, embedded map, parking note, **matching** GBP hours.                                         |
+|    P1    | `/repair`           | Services list, turnaround guidance, save-data language — finding **08** / Wave 2 voice research. |
+|    P1    | `/trade-in`         | Transparent policy — publish formula **if approved** (finding **11**).                           |
+|    P1    | `/authenticity`     | How you inspect carts / repro handling — finding **09**.                                         |
+|    P1    | `/about`            | Owner story, **since 2014**, staff faces — finding **10**.                                       |
+|    P2    | `/news`             | Markdown posts — new arrivals / stories (content-led architecture — finding **07**).             |
+|    P2    | `/locations/[city]` | IE geo landing pages — finding **16** (roll out gradually).                                      |
 
 **Kill / replace**: Admin-only news backend; fragile embeds (Curator script bug — see AUDIT).
 
@@ -53,7 +53,7 @@ Priority order reflects conversion evidence + uniqueness:
 
 ### Dual audience layering (finding **12**)
 
-- **Casual visitors** — emotional hook + clarity + events.
+- **Casual visitors** — emotional hook + clarity + events.`
 - **Serious collectors** — depth pages (`/trade-in`, `/authenticity`, `/repair`) linked prominently but not shouty.
 
 ### Premium patterns on a budget (finding **06**)
@@ -78,9 +78,9 @@ Before shipping the new site:
 
 ### On-site: structured data (findings **14–15**)
 
-| Page type | Schema |
-|---|---|
-| Global | `Store` + `WebSite` + `Organization` graph — hours, phone, `sameAs`, geo |
+| Page type | Schema                                                                                                      |
+| --------- | ----------------------------------------------------------------------------------------------------------- |
+| Global    | `Store` + `WebSite` + `Organization` graph — hours, phone, `sameAs`, geo                                    |
 | Each swap | `Event` — `startDate`, `endDate`, `eventStatus`, `location`, `image`, `offers` if paid admission/table fees |
 
 Validate every template in Google's **Rich Results Test**.
@@ -101,11 +101,11 @@ Ship unique pages over **months**, not overnight — e.g. Rancho Cucamonga, Rive
 
 ## 5. Content calendar (minimum viable)
 
-| Cadence | Content |
-|---|---|
-| Weekly | Instagram/Facebook cross-post of **new arrivals** photo set |
-| Per event | Event landing page + GBP Update + email blast |
-| Monthly | One **news** Markdown post — repair story, tournament, community spotlight |
+| Cadence   | Content                                                                    |
+| --------- | -------------------------------------------------------------------------- |
+| Weekly    | Instagram/Facebook cross-post of **new arrivals** photo set                |
+| Per event | Event landing page + GBP Update + email blast                              |
+| Monthly   | One **news** Markdown post — repair story, tournament, community spotlight |
 
 Skip the calendar → noise dies — swap meets carry the brand.
 
@@ -156,10 +156,10 @@ Borrowed from Athena `open-questions.md` — resolve asynchronously:
 
 ## 9. Metrics to watch post-launch
 
-| Metric | Tool |
-|---|---|
-| GBP insights — searches / directions / calls | Google Business Profile |
-| Organic queries — branded vs non-branded | Google Search Console |
-| Event landing traffic + `BEGIN_CHECKOUT` (future) | GA4 |
+| Metric                                            | Tool                    |
+| ------------------------------------------------- | ----------------------- |
+| GBP insights — searches / directions / calls      | Google Business Profile |
+| Organic queries — branded vs non-branded          | Google Search Console   |
+| Event landing traffic + `BEGIN_CHECKOUT` (future) | GA4                     |
 
 Review quarterly; iterate geo pages + event archives based on Search Console queries.
