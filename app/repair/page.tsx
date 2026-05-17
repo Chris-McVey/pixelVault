@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { DropCta } from "@/components/marketing/drop-cta";
 import { GoogleReviewsStrip } from "@/components/marketing/google-quote-strip";
-import { IllustrationRepairBench } from "@/components/marketing/illustrations";
+import { IllustrationRepair } from "@/components/marketing/illustrations";
 import { PageHero } from "@/components/marketing/page-hero";
 import { PillRow } from "@/components/marketing/pill-row";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Repair",
-  description: `Console & controller repair at ${site.name} — honest diagnostics, saves-first mindset, Ontario CA.`,
+  description: `Console and controller repair at ${site.name}. Honest diagnostics in Ontario, CA.`,
 };
 
 const pills = [
@@ -24,24 +24,17 @@ export default function RepairPage() {
   return (
     <>
       <PageHero
-        eyebrow="Bench — Ontario, CA"
+        eyebrow="Repairs, Ontario"
         title={
           <>
-            Repair that respects{" "}
-            <span className="text-[var(--brand)]">your saves &amp; shells</span>
+            Console &amp; controller{" "}
+            <span className="text-[var(--brand)]">repair</span>
           </>
         }
-        subtitle="Dead HDMI on a Dreamcast? Wii drive buzz? Pro Controller drifting into lava pits? We troubleshoot like collectors — quote before work, explain risks before touching EEPROM."
+        subtitle="Have a dead console? Broken retro controller or a modern controller with stick drift? Bring it in, chances are we can fix it!"
         illustration={
           <div className="w-full max-w-[min(100%,320px)] drop-shadow-2xl drop-shadow-black/50">
-            <IllustrationRepairBench className="h-auto w-full" />
-            <p className="mt-3 text-center text-xs text-zinc-500">
-              Stylized illustration — drop bench photos into{" "}
-              <code className="rounded bg-white/5 px-1 text-[var(--brand)]">
-                /images/store/
-              </code>{" "}
-              when ready.
-            </p>
+            <IllustrationRepair className="h-auto w-full" />
           </div>
         }
       >
@@ -53,9 +46,9 @@ export default function RepairPage() {
           <article className="rounded-2xl border border-white/10 bg-[var(--surface)] p-6 shadow-xl shadow-black/25">
             <h2 className="text-lg font-semibold text-white">How it works</h2>
             <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-relaxed text-zinc-400">
-              <li>Bring the console or controller — cables help if the fault is power/video.</li>
-              <li>We reproduce the issue on the bench and outline options + price bands.</li>
-              <li>You approve before we replace parts or reflow boards.</li>
+              <li>Bring the console or controller. Cables help if it is a power or video issue.</li>
+              <li>We try to repeat the problem and give you options and a price range.</li>
+              <li>Nothing gets replaced or reflowed until you say go.</li>
             </ol>
           </article>
           <article className="rounded-2xl border border-white/10 bg-[var(--surface)] p-6 shadow-xl shadow-black/25">
@@ -85,18 +78,17 @@ export default function RepairPage() {
             <div>
               <h2 className="text-2xl font-semibold text-white">Data &amp; saves</h2>
               <p className="mt-4 leading-relaxed text-zinc-400">
-                Whenever work risks storage — Wii NAND, handheld flash — we&apos;ll spell it out before
-                touching solder. If we can&apos;t guarantee a save, we&apos;ll say so upfront.
+                If the job might touch storage (Wii NAND, handheld flash, that kind of thing), we say
+                so before solder. If we cannot promise your save, we tell you that upfront.
               </p>
               <p className="mt-4 leading-relaxed text-zinc-400">
-                Competitive scans showed collectors reward shops that speak plainly about risk.
-                No geek-shaming; just honest timelines.
+                Plain talk, realistic timelines, no attitude about what you do or do not know.
               </p>
             </div>
             <DropCta
-              title="Need a queue time?"
-              description="Busy Saturdays happen — call before you haul a CRT across county lines."
-              href="/contact"
+              title="Want a wait time?"
+              description="Saturdays get packed. Worth a quick call before you drive a CRT across the county."
+              href="/about#visit"
               label="Call or get directions"
             />
           </div>
@@ -118,7 +110,7 @@ export default function RepairPage() {
             href="/events"
             className="text-sm font-semibold text-[var(--brand)] hover:underline"
           >
-            Swap meet weekends →
+            Buy, sell, trade events →
           </Link>
         </div>
       </section>

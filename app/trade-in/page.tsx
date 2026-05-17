@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Trade-in",
-  description: `Sell or trade games and hardware at ${site.name} — fair quotes, clear expectations, Ontario CA.`,
+  description: `Sell or trade games and hardware at ${site.name}. Fair quotes in Ontario, CA.`,
 };
 
 const pills = ["Cash offers", "Store credit bump", "Testing on the spot", "Imports welcomed"];
@@ -21,20 +21,16 @@ export default function TradeInPage() {
         eyebrow="Buy / sell / trade"
         title={
           <>
-            Trades that stay{" "}
-            <span className="text-[var(--brand)]">legible &amp; fair</span>
+            Straightforward{" "}
+            <span className="text-[var(--brand)]">buy and trade</span>
           </>
         }
-        subtitle="Bring bins or a single grail — we price against recent sold comps, condition in hand, and local demand. No algorithmic lowballs from behind a counter laptop."
+        subtitle="One cart or a whole tote. We look at recent sold prices, what shape it is in, and what people are actually buying here. No mystery spreadsheet behind the counter."
         illustration={
           <div className="w-full max-w-[min(100%,320px)] drop-shadow-2xl drop-shadow-black/50">
             <IllustrationTradeBins className="h-auto w-full" />
             <p className="mt-3 text-center text-xs text-zinc-500">
-              Drop your real floor shots into{" "}
-              <code className="rounded bg-white/5 px-1 text-[var(--brand)]">
-                public/images/store/
-              </code>{" "}
-              when you have them.
+              Floor photos coming soon.
             </p>
           </div>
         }
@@ -55,8 +51,8 @@ export default function TradeInPage() {
             <article className="rounded-2xl border border-white/10 bg-[var(--surface)] p-6">
               <h2 className="text-lg font-semibold text-white">Condition honesty</h2>
               <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-                Label repro carts, swapped shells, or aftermarket batteries — we&apos;ll adjust
-                offers accordingly. Surprises after inspection don&apos;t help either side.
+                Tell us about repro labels, swapped shells, or aftermarket batteries and we will
+                price accordingly. Surprises after we open the box do not help anyone.
               </p>
             </article>
             <GoogleReviewsStrip />
@@ -68,10 +64,12 @@ export default function TradeInPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <h2 className="text-2xl font-semibold text-white">Quote transparency</h2>
           <p className="mt-4 max-w-3xl leading-relaxed text-zinc-400">
-            Research for this site flagged published trade formulas as a trust accelerator — but
-            posting exact percentages is a business decision. Here&apos;s the promise instead:
-            we&apos;ll explain how we reached a number (comps, condition tier, local velocity) so you
-            can decide in the moment.
+            We do not post a fixed percentage chart. Prices move too fast for that to stay honest.
+            What we will do is walk you through the number: recent sales, what we see in hand, and
+            what is moving on the floor right now. You decide from there.
+          </p>
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-zinc-500">
+            Every quote includes a straight look at labels and repros when the item warrants it.
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             <div className="rounded-2xl border border-dashed border-[var(--brand)]/30 bg-[var(--brand)]/5 p-6">
@@ -79,14 +77,14 @@ export default function TradeInPage() {
                 Credit bump
               </p>
               <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-                Store credit offers typically edge above cash — spend it on the floor the same day.
+                Store credit usually beats cash a little. Spend it in the shop the same day.
               </p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-[var(--surface)] p-6">
               <p className="text-sm font-semibold text-white">Large lots</p>
               <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-                Buying collections? Call ahead if it&apos;s multiple bins — we&apos;ll carve out time so
-                nothing gets a rushed skim.
+                Selling a big collection? Call if it is more than a couple bins. We will block time
+                so nobody has to rush through it.
               </p>
             </div>
           </div>
@@ -97,8 +95,8 @@ export default function TradeInPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <DropCta
             title="Swing by with a tote"
-            description="Check posted retail hours — Tuesdays we&apos;re closed for restocking."
-            href="/contact"
+            description="Check hours before you come. We are closed Tuesdays for restocking."
+            href="/about#visit"
             label="Hours & directions"
           />
         </div>
@@ -109,9 +107,14 @@ export default function TradeInPage() {
           <Link href="/" className="text-sm font-medium text-zinc-500 hover:text-[var(--brand)]">
             ← Home
           </Link>
-          <Link href="/repair" className="text-sm font-semibold text-[var(--brand)] hover:underline">
-            Repair services →
-          </Link>
+          <div className="flex flex-wrap gap-6">
+            <Link href="/repair" className="text-sm font-semibold text-[var(--brand)] hover:underline">
+              Repair services →
+            </Link>
+            <Link href="/events" className="text-sm font-semibold text-zinc-400 hover:text-[var(--brand)]">
+              Events →
+            </Link>
+          </div>
         </div>
       </section>
     </>

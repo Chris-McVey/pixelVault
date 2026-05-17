@@ -1,11 +1,5 @@
-# Store photography (from legacy site)
+# Store photography
 
-Copy JPEGs from your **legacy deploy** or backups into this folder using these filenames so `next/image` can pick them up:
+Legacy JPEGs live in **`assets/`** at the repo root (`gamesInCase.jpeg`, `consolesAndControllers.jpeg`, `storeDisplay2.jpeg`, `storeExterior.jpeg`, etc.).
 
-| File | Legacy reference (`legacy/webpack-site/client/src/Home.jsx`) |
-|------|----------------------------------------------------------------|
-| `games-in-case.jpg` | `../assets/gamesInCase.jpeg` — NES display case |
-| `consoles-controllers.jpg` | `../assets/consolesAndControllers.jpeg` — boxed consoles & controllers |
-| `store-display.jpg` | `../assets/storeDisplay2.jpeg` — character / in-store display |
-
-After adding files, update pages to use `<Image src="/images/store/..." />` instead of illustrations where desired.
+The homepage **Inside the shop** section imports those files directly — update images there by replacing files under `assets/` with the same filenames.

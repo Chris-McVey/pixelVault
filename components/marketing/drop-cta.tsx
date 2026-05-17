@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-/** Drop-shaped engagement: tie CTA to next visit / swap / bench queue — per competitor scan. */
+/** Highlight CTA toward visit, events, or calling ahead. */
 
 export function DropCta({
   title,

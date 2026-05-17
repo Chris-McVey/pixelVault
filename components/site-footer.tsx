@@ -1,5 +1,6 @@
-import Link from 'next/link';
-import { site } from '@/lib/site';
+import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
+import { site } from "@/lib/site";
 
 export function SiteFooter() {
   const mapsQuery = encodeURIComponent(
@@ -11,11 +12,18 @@ export function SiteFooter() {
       <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
         <div className="grid gap-8 sm:grid-cols-2">
           <div>
-            <p className="font-semibold text-white">{site.name}</p>
+            <Link
+              href="/"
+              className="inline-block opacity-90 transition hover:opacity-100"
+              aria-label={`${site.name}, home`}
+            >
+              <BrandLogo variant="footer" />
+            </Link>
+            <p className="mt-4 font-semibold text-white">{site.name}</p>
             <p className="mt-2 text-sm leading-relaxed text-zinc-400">
               {site.address.street}
               <br />
-              {site.address.city}, {site.address.region}{' '}
+              {site.address.city}, {site.address.region}{" "}
               {site.address.postalCode}
             </p>
             <p className="mt-3 text-sm text-zinc-400">
@@ -55,7 +63,7 @@ export function SiteFooter() {
                 YouTube
               </a>
               <Link href="/events" className="hover:text-[var(--brand)]">
-                Swap meets
+                Buy, sell, trade
               </Link>
             </div>
             <a

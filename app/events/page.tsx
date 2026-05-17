@@ -7,9 +7,9 @@ import {
 } from "@/lib/events";
 
 export const metadata: Metadata = {
-  title: "Events & swap meets",
+  title: "Buy, sell, trade events",
   description:
-    "Vault Swap dates, vendor notes, and archives — Pixel Vault Games, Ontario CA.",
+    "Buy, sell, trade event dates, vendor notes, and past events. Pixel Vault Games, Ontario, CA.",
 };
 
 export default function EventsPage() {
@@ -19,12 +19,11 @@ export default function EventsPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
       <h1 className="text-3xl font-semibold tracking-tight text-white">
-        Events &amp; swap meets
+        Buy, sell, trade events
       </h1>
       <p className="mt-6 leading-relaxed text-zinc-400">
-        Indoor community swaps alongside the shop — collectors, vendors, and
-        families sharing bins and stories. Each date gets its own page with load-in
-        notes and JSON-LD so Google can surface the schedule.
+        Buy, sell, trade days run alongside the shop. Collectors, vendors, and families with bins and stories.
+        Each date has its own page: hours, load-in, what to expect when you walk in.
       </p>
       <p className="mt-4 leading-relaxed text-zinc-400">
         Flash announcements still hit{" "}
@@ -36,14 +35,14 @@ export default function EventsPage() {
         >
           @pixelvaultgames
         </a>{" "}
-        first — follow there for same-day changes.
+        first. Follow there for same-day changes.
       </p>
 
       <section className="mt-12">
         <h2 className="text-lg font-semibold text-white">Upcoming</h2>
         {upcoming.length === 0 ? (
           <p className="mt-4 text-zinc-400">
-            No upcoming swaps listed yet — check Instagram for the next drop.
+            No upcoming events listed yet. Check Instagram for the next date.
           </p>
         ) : (
           <ul className="mt-6 space-y-4">
@@ -73,7 +72,7 @@ export default function EventsPage() {
       <section className="mt-14 border-t border-white/10 pt-12">
         <h2 className="text-lg font-semibold text-white">Archive</h2>
         <p className="mt-2 text-sm text-zinc-500">
-          Past swaps stay addressable for returning vendors who bookmark URLs.
+          Past dates stay on the site so vendors and regulars can link back to load-in notes.
         </p>
         {past.length === 0 ? (
           <p className="mt-4 text-zinc-400">No archived events yet.</p>
