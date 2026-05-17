@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s · Pixel Vault Games",
   },
   description:
-    "Retro video games — buy, sell, trade, repair. Community swap meets. Ontario, CA (Inland Empire). Family-owned since 2014.",
+    "Retro video games: buy, sell, trade, repair, and community events in Ontario, CA. Family-owned since 2014.",
   openGraph: {
     siteName: "Pixel Vault Games",
     locale: "en_US",
@@ -36,11 +36,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Browser extensions (e.g. Dark Reader) inject attributes on <html> before hydrate — suppressHydrationWarning avoids false mismatches.
+  // Browser extensions (e.g. Dark Reader) inject attributes on <html> / <body> before hydrate.
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col bg-[var(--background)] font-sans antialiased text-zinc-100`}
+        suppressHydrationWarning
       >
         <GlobalJsonLd />
         <SiteHeader />

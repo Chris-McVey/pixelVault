@@ -1,4 +1,4 @@
-/** Aggregate Google rating strip — press-quote wall pattern from competitor scan (earned social proof > anonymous testimonials). */
+/** Prominent rating area — pair with live Google reviews when embedded. */
 
 export function GoogleReviewsStrip() {
   return (
@@ -7,12 +7,12 @@ export function GoogleReviewsStrip() {
         ★★★★★
       </p>
       <p className="mt-2 text-sm font-medium text-zinc-200">
-        Loved on Google Maps by locals &amp; collectors
+        Rated on Google Maps
       </p>
       <p className="mt-2 text-sm leading-relaxed text-zinc-500">
-        Pin your live star average here after you connect GBP widgets — until then,
-        we keep the focus on in-person trust: diagnose honestly, quote before work,
-        explain saves before wiping.
+        Our latest reviews are on Google Maps. Ask someone in the shop on a Saturday and you will
+        hear the same stuff we shoot for with repairs: tell you what is wrong, quote before we
+        touch it, be straight when saves or storage are involved.
       </p>
     </aside>
   );

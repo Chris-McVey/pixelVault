@@ -1,6 +1,6 @@
-/** Decorative SVGs until legacy JPEGs land in /images/store/ — crisp at any size. */
+/** Decorative SVGs — accent uses CSS brand token via inline styles where needed. */
 
-export function IllustrationRepairBench({ className }: { className?: string }) {
+export function IllustrationRepair({ className }: { className?: string }) {
   return (
     <svg
       className={className}

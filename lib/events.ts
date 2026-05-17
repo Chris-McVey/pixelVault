@@ -111,7 +111,7 @@ export function getPastEvents(now = new Date()): ShopEvent[] {
     .reverse();
 }
 
-/** Next swap for homepage hero — undefined if none scheduled */
+/** Next featured event for homepage hero — undefined if none scheduled */
 export function getNextFeaturedEvent(now = new Date()): ShopEvent | undefined {
   const upcoming = getUpcomingEvents(now);
   return upcoming[0];
@@ -137,5 +137,5 @@ export function formatEventRange(startIso: string, endIso: string): string {
   };
   const startT = start.toLocaleTimeString("en-US", timeFmt);
   const endT = end.toLocaleTimeString("en-US", timeFmt);
-  return `${datePart} · ${startT} – ${endT}`;
+  return `${datePart}, ${startT} to ${endT}`;
 }

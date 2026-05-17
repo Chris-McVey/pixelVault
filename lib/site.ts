@@ -18,9 +18,9 @@ export function getCanonicalSiteUrl(): string {
 export const site = {
   name: "Pixel Vault Games",
   shortName: "Pixel Vault",
-  /** Family-owned retro shop — matches legacy marketing copy */
+  /** Homepage hero — inventory breadth signal without sounding like a catalog site */
   tagline:
-    "Buy, sell, trade, and repair — from Magnavox Odyssey to Xbox Series X.",
+    "We buy, sell, and trade everything from the Magnavox Odyssey to the Xbox Series X.",
   foundedYear: 2014,
   address: {
     street: "931 W Holt Blvd",
@@ -51,26 +51,24 @@ export const site = {
   hours: {
     timeZone: "America/Los_Angeles",
     lines: [
-      "Monday 12:00 PM – 6:00 PM",
-      "Tuesday — Closed",
-      "Wednesday–Saturday 12:00 PM – 6:00 PM",
-      "Sunday 12:00 PM – 4:00 PM",
+      "Monday 12:00 PM to 6:00 PM",
+      "Tuesday: closed",
+      "Wednesday through Saturday 12:00 PM to 6:00 PM",
+      "Sunday 12:00 PM to 4:00 PM",
     ],
   },
   parkingNote:
-    "Parking is available in the lot; Holt Blvd also has street parking. Swap days get busy — arrive early if you’re hauling bins.",
+    "Lot parking plus street spots on Holt. Buy, sell, trade event days fill up fast, so come early if you are hauling bins.",
 } as const;
 
 export type NavItem = { href: string; label: string };
 
 export const mainNav: NavItem[] = [
   { href: "/", label: "Home" },
-  { href: "/events", label: "Events & swaps" },
+  { href: "/events", label: "Buy, sell, trade" },
   { href: "/repair", label: "Repair" },
   { href: "/trade-in", label: "Trade-in" },
-  { href: "/authenticity", label: "Authenticity" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Visit" },
 ];
 
 export function formatStreetAddress(): string {
