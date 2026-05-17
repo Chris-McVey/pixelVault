@@ -5,12 +5,14 @@ import { GoogleReviewsStrip } from "@/components/marketing/google-quote-strip";
 import { IllustrationRepair } from "@/components/marketing/illustrations";
 import { PageHero } from "@/components/marketing/page-hero";
 import { PillRow } from "@/components/marketing/pill-row";
+import { createPageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Repair",
-  description: `Console and controller repair at ${site.name}. Honest diagnostics in Ontario, CA.`,
-};
+export const metadata: Metadata = createPageMetadata({
+  title: "Game repair",
+  description: `Console and controller repair at ${site.name} in Ontario, CA. NES through modern systems, stick drift, HDMI, and handheld batteries.`,
+  pathname: "/repair",
+});
 
 const pills = [
   "Diagnostics first",

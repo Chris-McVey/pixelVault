@@ -3,12 +3,14 @@ import { HomeAboutDetails } from "@/components/marketing/home-about-details";
 import { HomeVisitLocation, HomeVisitStorefront } from "@/components/marketing/home-visit";
 import { PageHero } from "@/components/marketing/page-hero";
 import { PillRow } from "@/components/marketing/pill-row";
+import { createPageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "About",
-  description: `${site.name}: hours, directions, map, parking, and our story. Family-owned in Ontario, CA since ${site.foundedYear}.`,
-};
+export const metadata: Metadata = createPageMetadata({
+  title: "Visit & hours",
+  description: `Visit ${site.name} at 931 W Holt Blvd, Ontario, CA. Store hours, map, parking, phone ${site.phoneDisplay}. Family-owned retro games since ${site.foundedYear}.`,
+  pathname: "/about",
+});
 
 const pills = [
   "Family-owned",

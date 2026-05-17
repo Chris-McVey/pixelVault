@@ -23,11 +23,20 @@ export const metadata: Metadata = {
     template: "%s · Pixel Vault Games",
   },
   description:
-    "Retro video games: buy, sell, trade, repair, and community events in Ontario, CA. Family-owned since 2014.",
+    "Family-owned retro video game store in Ontario, CA. Buy, sell, trade, repair, and community events in the Inland Empire since 2014.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     siteName: "Pixel Vault Games",
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 

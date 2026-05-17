@@ -5,12 +5,14 @@ import {
   getPastEvents,
   getUpcomingEvents,
 } from "@/lib/events";
+import { createPageMetadata } from "@/lib/seo";
+import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Buy, sell, trade events",
-  description:
-    "Buy, sell, trade event dates, vendor notes, and past events. Pixel Vault Games, Ontario, CA.",
-};
+  description: `Buy, sell, trade event dates at ${site.name} in Ontario, CA. Vendor tables, games, TCG, toys, and collectibles in the Inland Empire.`,
+  pathname: "/events",
+});
 
 export default function EventsPage() {
   const upcoming = getUpcomingEvents();

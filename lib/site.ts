@@ -21,6 +21,9 @@ export const site = {
   /** Homepage hero — inventory breadth signal without sounding like a catalog site */
   tagline:
     "We buy, sell, and trade everything from the Magnavox Odyssey to the Xbox Series X.",
+  /** Store summary for meta descriptions and JSON-LD (local SEO). */
+  seoDescription:
+    "Family-owned retro video game store in Ontario, CA. Buy, sell, trade, and repair games and consoles. Community events in the Inland Empire since 2014.",
   foundedYear: 2014,
   address: {
     street: "931 W Holt Blvd",

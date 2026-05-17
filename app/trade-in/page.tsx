@@ -5,12 +5,14 @@ import { GoogleReviewsStrip } from "@/components/marketing/google-quote-strip";
 import { IllustrationTradeBins } from "@/components/marketing/illustrations";
 import { PageHero } from "@/components/marketing/page-hero";
 import { PillRow } from "@/components/marketing/pill-row";
+import { createPageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Trade-in",
-  description: `Sell or trade games and hardware at ${site.name}. Fair quotes in Ontario, CA.`,
-};
+  description: `Sell or trade video games and consoles at ${site.name} in Ontario, CA. Fair cash or store credit quotes on retro and modern games.`,
+  pathname: "/trade-in",
+});
 
 const pills = ["Cash offers", "Store credit bump", "Testing on the spot", "Imports welcomed"];
 

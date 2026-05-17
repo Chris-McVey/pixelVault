@@ -22,9 +22,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const e of getAllEventsSorted()) {
     items.push({
       url: `${base}/events/${e.slug}`,
-      lastModified: new Date(),
+      lastModified: new Date(e.startIso),
       changeFrequency: "weekly",
-      priority: 0.85,
+      priority: 0.9,
     });
   }
 

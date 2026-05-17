@@ -1,10 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { StoreSpotlight } from "@/components/marketing/store-spotlight";
 import {
   formatEventRange,
   getNextFeaturedEvent,
 } from "@/lib/events";
+import { createPageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
+
+export const metadata: Metadata = createPageMetadata({
+  absoluteTitle: "Pixel Vault Games | Retro Games in Ontario, CA",
+  title: "Home",
+  description: site.seoDescription,
+  pathname: "/",
+});
 
 export default function HomePage() {
   const nextEvent = getNextFeaturedEvent();

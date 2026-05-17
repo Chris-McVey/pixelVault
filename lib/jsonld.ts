@@ -26,7 +26,9 @@ export function buildGlobalJsonLd(): Record<string, unknown> {
         "@type": ["Store", "LocalBusiness"],
         "@id": storeId,
         name: site.name,
-        description: site.tagline,
+        description: site.seoDescription,
+        url: base,
+        image: `${base}/opengraph-image`,
         telephone: site.phoneTel,
         address: {
           "@type": "PostalAddress",

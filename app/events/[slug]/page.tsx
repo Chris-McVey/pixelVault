@@ -7,6 +7,7 @@ import {
   getAllEventsSorted,
   getEventBySlug,
 } from "@/lib/events";
+import { createPageMetadata } from "@/lib/seo";
 import { formatStreetAddress, site } from "@/lib/site";
 
 type Props = {
@@ -23,15 +24,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!ev) {
     return { title: "Event" };
   }
-  return {
+  return createPageMetadata({
     title: ev.title,
-    description: ev.summary,
-    openGraph: {
-      title: ev.title,
-      description: ev.summary,
-      type: "website",
-    },
-  };
+    description: `${ev.summary} At ${site.name}, ${formatStreetAddress()}.`,
+    pathname: `/events/${slug}`,
+    ogType: "article",
+  });
 }
 
 export default async function EventDetailPage({ params }: Props) {
