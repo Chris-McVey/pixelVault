@@ -46,9 +46,18 @@ export function SiteHeader() {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen]);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[var(--surface)]/95 backdrop-blur-md">
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+    <header className="relative sticky top-0 z-50 border-b border-white/10 bg-[var(--surface)]/95 backdrop-blur-md">
+      <div className="relative z-50 mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <div className="flex min-w-0 items-center gap-3 sm:gap-4">
           <Link
             href="/"
@@ -91,31 +100,56 @@ export function SiteHeader() {
         </nav>
       </div>
 
-      {menuOpen ? (
-        <nav id="mobile-nav" aria-label="Main" className="border-t border-white/10 md:hidden">
-          <ul className="mx-auto flex max-w-5xl flex-col gap-1 px-4 py-3 sm:px-6">
-            {mainNav.map(({ href, label }) => {
-              const active =
-                href === "/" ? pathname === "/" : pathname.startsWith(href);
-              return (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className={`block rounded-lg px-3 py-3 text-base font-medium transition ${
-                      active
-                        ? "bg-[var(--brand)]/15 text-[var(--brand)]"
-                        : "text-zinc-200 hover:bg-white/5 hover:text-[var(--brand)]"
-                    }`}
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-      ) : null}
+      <div
+        className={`fixed inset-0 z-40 md:hidden motion-safe:transition-opacity motion-safe:duration-200 ${
+          menuOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
+        }`}
+        aria-hidden={!menuOpen}
+      >
+        <button
+          type="button"
+          tabIndex={menuOpen ? 0 : -1}
+          className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"
+          aria-label="Close menu"
+          onClick={() => setMenuOpen(false)}
+        />
+      </div>
+
+      <nav
+        id="mobile-nav"
+        aria-label="Main"
+        aria-hidden={!menuOpen}
+        className={`absolute left-0 right-0 top-full z-50 border-b border-white/10 bg-[var(--surface)]/98 shadow-2xl shadow-black/40 backdrop-blur-md md:hidden motion-safe:transition-[transform,opacity] motion-safe:duration-200 motion-safe:ease-out ${
+          menuOpen
+            ? "pointer-events-auto translate-y-0 opacity-100"
+            : "pointer-events-none -translate-y-2 opacity-0"
+        }`}
+      >
+        <ul className="mx-auto flex max-w-5xl flex-col gap-1 px-4 py-3 sm:px-6">
+          {mainNav.map(({ href, label }) => {
+            const active =
+              href === "/" ? pathname === "/" : pathname.startsWith(href);
+            return (
+              <li key={href}>
+                <Link
+                  href={href}
+                  tabIndex={menuOpen ? 0 : -1}
+                  className={`block rounded-lg px-3 py-3 text-base font-medium transition ${
+                    active
+                      ? "bg-[var(--brand)]/15 text-[var(--brand)]"
+                      : "text-zinc-200 hover:bg-white/5 hover:text-[var(--brand)]"
+                  }`}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     </header>
   );
 }
