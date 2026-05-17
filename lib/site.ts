@@ -34,9 +34,8 @@ export const site = {
     latitude: 34.0639,
     longitude: -117.6512,
   },
-  /** Confirm against Google Business Profile — BusinessYab listed a variant digit historically */
-  phoneDisplay: "(909) 664-7634",
-  phoneTel: "+19096647634",
+  phoneDisplay: "(909) 664-7635",
+  phoneTel: "+19096647635",
   /** Used in JSON-LD @id — must match public site URL in production */
   social: {
     instagram: "https://www.instagram.com/pixelvaultgames",
